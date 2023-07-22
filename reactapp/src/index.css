@@ -11,9 +11,10 @@ code {
 
 
 body {
-	background: linear-gradient(-45deg, #c5f7d1, #b2f7b5);
+	background: #1DB954;
+	/* linear-gradient(-45deg, #c5f7d1, #b2f7b5); */
 	background-size: 400% 400%;
-	animation: gradient 10s ease infinite;
+	/* animation: gradient 30s ease infinite; */
 	height: 100vh;
 }
 
