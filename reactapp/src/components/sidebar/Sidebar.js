@@ -19,7 +19,7 @@ export default function Sidebar() {
   const sidebarRootStyles = {
     [`.${sidebarClasses.container}`]: {
       backgroundColor: "transparent",
-      color: "var(--primary-color)",
+      color: "var(--tertiary-color)",
       position: "fixed",
       display: "flex",
       flexDirection: "column",
@@ -37,7 +37,7 @@ export default function Sidebar() {
       marginBottom: "1em",
       size: "1em",
       "&:hover": {
-        color: "var(--primary-color)",
+        color: "black",
         fontWeight: "bold",
       },
       "&.active": {

@@ -271,7 +271,7 @@ const LavaAnimation = () => {
             a = i.screen.init("lamp-anim", null, !0),
             o = a.ctx;
           a.resize();
-          t = new e(a.width, a.height, 6, "#3494E6", "#EC6EAD"); //
+          t = new e(a.width, a.height, 6, "#fff", "#ffffff"); //"#3494E6", "#EC6EAD"
         }
         return { run: n };
       })();
@@ -285,13 +285,16 @@ const LavaAnimation = () => {
   }, []);
 
   return (
-    <canvas
-      id="lamp-anim"
-      className="lamp-anim"
-      ref={canvasRef}
-      width="1500px"
-      height="700px"
-    ></canvas>
+    <>
+      <canvas
+        id="lamp-anim"
+        className="lamp-anim"
+        ref={canvasRef}
+        width={window.innerWidth - 15}
+        height={window.innerHeight - 5}
+        style={{ position: "absolute", left: 0, top: 0 }}
+      ></canvas>
+    </>
   );
 };
 
