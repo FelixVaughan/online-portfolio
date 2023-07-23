@@ -1,0 +1,15 @@
+.profile-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 3em;
+}
+
+.profile-picture {
+    flex: 1
+}
+
+.profile-header {
+    flex: 2
+}

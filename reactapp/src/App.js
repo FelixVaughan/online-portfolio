@@ -1,6 +1,6 @@
 import "./App.css";
-import Sidebar from "./components//sidebar/Sidebar";
-import Home from "./pages/Home";
+import Sidebar from "./components/sidebar/Sidebar";
+import Home from "./pages/home/Home";
 import Navigation from "./components/navbar/Navigation";
 import { useEffect } from "react";
 import LavaAnimation from "./components/lavaAnimation/LavaAnimation";
@@ -12,7 +12,7 @@ function App() {
       </header>
       <body>
         <Sidebar />
-        <LavaAnimation/>
+        <LavaAnimation />
         <Home />
       </body>
     </div>
