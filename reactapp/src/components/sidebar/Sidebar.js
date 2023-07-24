@@ -19,7 +19,7 @@ export default function Sidebar() {
   const sidebarRootStyles = {
     [`.${sidebarClasses.container}`]: {
       backgroundColor: "transparent",
-      color: "var(--tertiary-color)",
+      color: "var(--secondary)",
       position: "fixed",
       display: "flex",
       flexDirection: "column",
