@@ -292,7 +292,7 @@ const LavaAnimation = () => {
         ref={canvasRef}
         width={window.innerWidth - 15}
         height={window.innerHeight - 5}
-        style={{ position: "absolute", left: 0, top: 0 }}
+        style={{ position: "absolute", left: 0, top: 0, zIndex: -1 }}
       ></canvas>
     </>
   );

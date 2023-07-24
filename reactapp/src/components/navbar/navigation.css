@@ -1,9 +1,10 @@
 @import url('https://fonts.cdnfonts.com/css/cooper-black');
 .nav-container {
-    /* background-color: var(--primary-color); */
     left: 0;
     right: 0;
+    top:0;
     position: fixed;
+    margin: 0;
     border-radius: 0px;
     padding-top: 0.7em;
     padding-left: 75%;
@@ -11,14 +12,12 @@
     z-index: 1000;
 }
 
-.nav-items-container {
-    position: relative;
-}
 
 .nav-items-container *{
     padding-left: 0.5em;
-    color:  var(--tertiary-color);
+    color:  var(--secondary);
     font-family: 'Cooper Black', sans-serif;
+    font-size: 2em;
 }
 
 .nav-items-container *:hover{
