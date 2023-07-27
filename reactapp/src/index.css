@@ -1,19 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
-
+@import url('https://fonts.cdnfonts.com/css/open-sans');
 :root {
-  --primary: #1DB954;;
-  --secondary: #ffffff;
+  --primary: #1DB954; 
+  /* #00494A */
+  --secondary: #FED000;
   --tertiary: #23527c;
   --primary-font: 'Poppins', sans-serif;
 }
 
 code {
   font-family: var(--primary-font);
+
 }
 
 
 body {
-	background: var(--primary);
+	background: var(--tertiary);
 	/* linear-gradient(-45deg, #c5f7d1, #b2f7b5); */
 	background-size: 400% 400%;
 	/* animation: gradient 30s ease infinite; */

@@ -8,6 +8,7 @@ export default function Home() {
       <div classname="header-section">
         <Profile bio={profileData.bio} image={profilePic} />;
       </div>
+      <hr />
       <div className="description-section">{profileData.info}</div>
     </div>
   );

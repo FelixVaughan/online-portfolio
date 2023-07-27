@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 
 .profile-container {
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -11,12 +12,10 @@
 }
 
 .profile-picture {
-    flex: 1;
-    width: 150px;
-    height: 150px;
+    width: 25em;
+    height: 25em;
     border-radius: 50%;
     overflow: hidden;
-
 }
 
 .profile-picture img {
@@ -27,9 +26,8 @@
 
 .profile-header {
     flex: 2;
-    color: var(--tertiary);
-    font-size: 2em;
+    color: var(--secondary);
+    font-size: calc((2.8 - 1) * 1.2vw + 1rem);
     font-family: 'Poppins', sans-serif;
     font-weight: bolder;
-
 }

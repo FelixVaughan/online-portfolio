@@ -11,7 +11,11 @@ function App() {
         <Navigation />
       </div>
       <Sidebar />
-      <LavaAnimation />`
+      <LavaAnimation
+        width={window.innerWidth - 15}
+        height={window.innerHeight}
+        ballSizeFactor={0.6}
+      />
       <div className="home">
         <Home />
       </div>
