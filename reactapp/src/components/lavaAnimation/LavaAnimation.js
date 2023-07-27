@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import $ from "jquery";
 
-const LavaAnimation = () => {
+const LavaAnimation = ({ width, height, ballSizeFactor }) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -73,7 +73,7 @@ const LavaAnimation = () => {
         s.prototype.add = function (t) {
           return new s(this.x + t.x, this.y + t.y);
         };
-        var h = function (t) {
+        var h = function (t, ballSizeFactor) {
           var i = 0.1,
             h = 1.5;
           this.vel = new s(
@@ -84,7 +84,9 @@ const LavaAnimation = () => {
             0.2 * t.width + Math.random() * t.width * 0.6,
             0.2 * t.height + Math.random() * t.height * 0.6
           );
-          this.size = t.wh / 15 + (Math.random() * (h - i) + i) * (t.wh / 15);
+          this.size =
+            ballSizeFactor *
+            (t.wh / 15 + (Math.random() * (h - i) + i) * (t.wh / 15));
           this.width = t.width;
           this.height = t.height;
         };
@@ -115,7 +117,7 @@ const LavaAnimation = () => {
 
           this.pos = this.pos.add(this.vel);
         };
-        var e = function (t, i, e, n, a) {
+        var e = function (t, i, e, n, a, ballSizeFactor) {
           this.step = 5;
           this.width = t;
           this.height = i;
@@ -139,7 +141,8 @@ const LavaAnimation = () => {
               (o % (this.sx + 2)) * this.step,
               Math.floor(o / (this.sx + 2)) * this.step
             );
-          for (var l = 0; e > l; l++) this.balls[l] = new h(this);
+          for (var l = 0; e > l; l++)
+            this.balls[l] = new h(this, ballSizeFactor);
         };
         e.prototype.computeForce = function (t, i, s) {
           var h,
@@ -271,7 +274,7 @@ const LavaAnimation = () => {
             a = i.screen.init("lamp-anim", null, !0),
             o = a.ctx;
           a.resize();
-          t = new e(a.width, a.height, 6, "#fff", "#ffffff"); //"#3494E6", "#EC6EAD"
+          t = new e(a.width, a.height, 6, "#fff", "#ffffff", ballSizeFactor); //"#3494E6", "#EC6EAD"
         }
         return { run: n };
       })();
@@ -282,19 +285,17 @@ const LavaAnimation = () => {
         $(".js-works-d-list").addClass("is-loaded");
       }, 150);
     }
-  }, []);
+  }, [ballSizeFactor]);
 
   return (
-    <>
-      <canvas
-        id="lamp-anim"
-        className="lamp-anim"
-        ref={canvasRef}
-        width={window.innerWidth - 15}
-        height={window.innerHeight - 5}
-        style={{ position: "absolute", left: 0, top: 0, zIndex: -1 }}
-      ></canvas>
-    </>
+    <canvas
+      id="lamp-anim"
+      className="lamp-anim"
+      ref={canvasRef}
+      width={width}
+      height={height}
+      style={{ position: "absolute", left: 0, top: 0, zIndex: -1 }}
+    ></canvas>
   );
 };
 
