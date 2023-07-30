@@ -16,9 +16,7 @@ function App() {
         height={window.innerHeight}
         ballSizeFactor={0.6}
       />
-      <div className="home">
-        <Home />
-      </div>
+      <div className="home">{/* <Home /> */}</div>
     </div>
   );
 }

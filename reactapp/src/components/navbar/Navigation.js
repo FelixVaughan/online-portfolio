@@ -7,7 +7,7 @@ export default function Navigation() {
         <Nav className="me-auto nav-items-container">
           <Nav.Link href="#home">Home</Nav.Link>
           <Nav.Link href="#projecrs">Projects</Nav.Link>
-          <Nav.Link href="#contact">Contact</Nav.Link>
+          <Nav.Link href="/contact">Contact</Nav.Link>
         </Nav>
       </Container>
     </Navbar>
