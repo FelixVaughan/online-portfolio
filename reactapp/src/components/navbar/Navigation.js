@@ -5,7 +5,7 @@ export default function Navigation() {
     <Navbar bg="light nav-container" data-bs-theme="light" expand="lg">
       <Container>
         <Nav className="me-auto nav-items-container">
-          <Nav.Link href="#home">Home</Nav.Link>
+          <Nav.Link href="/">Home</Nav.Link>
           <Nav.Link href="#projecrs">Projects</Nav.Link>
           <Nav.Link href="/contact">Contact</Nav.Link>
         </Nav>
