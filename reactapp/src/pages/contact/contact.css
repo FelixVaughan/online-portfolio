@@ -1,0 +1,35 @@
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: baseline; /* Align items vertically */
+}
+
+.contact-text-content {
+  flex: 1; /* Take up equal space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end; /* Align items to the right */
+}
+
+.contact-form {
+  flex: 2; /* Take up equal space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Align items to the left */
+}
+
+
+.contact-text-content > h1, p {
+    color: var(--secondary);
+    font-family: 'Poppins', sans-serif;
+}
+
+.contact-text-content > h1 {
+    font-size: calc((2.8 - 1) * 1.2vw + 1rem);
+}
+
+.contact-text-content > p {
+    font-size: calc((0.2) * 1.2vw + 1rem);
+}
