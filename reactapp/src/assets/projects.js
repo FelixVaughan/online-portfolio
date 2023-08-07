@@ -5,7 +5,7 @@ export const data = [
     A REST API used to find out the latest information on current
     and past UFC fighters. 
     `,
-    tools: ["NodeJs", "MongoDb"],
+    tools: ["NodeJs", "Express", "MongoDb"],
     img: "./projects/mma.jpg",
     link: "https://github.com/",
   },
@@ -13,7 +13,7 @@ export const data = [
     header: "CovidCove",
     content: `
     A web application that gathered live data throughout covid 
-    to display up to date charting and visualizations on information
+    to display up to date charting and visualizations n information
     such as recovery vs fatality rates and so on and so forth
     `,
     tools: ["Django", "MySql"],
