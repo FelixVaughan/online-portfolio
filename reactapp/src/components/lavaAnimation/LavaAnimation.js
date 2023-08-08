@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from "react";
 import $ from "jquery";
+import { useEffect, useRef } from "react";
 
 const LavaAnimation = ({ width, height, ballSizeFactor }) => {
   const canvasRef = useRef(null);
@@ -274,7 +274,7 @@ const LavaAnimation = ({ width, height, ballSizeFactor }) => {
             a = i.screen.init("lamp-anim", null, !0),
             o = a.ctx;
           a.resize();
-          t = new e(a.width, a.height, 6, "#fff", "#ffffff", ballSizeFactor); //"#3494E6", "#EC6EAD"
+          t = new e(a.width, a.height, 6, "#fff", "#fff", ballSizeFactor); //"#3494E6", "#EC6EAD"
         }
         return { run: n };
       })();

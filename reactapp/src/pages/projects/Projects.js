@@ -1,101 +1,79 @@
-import {
-  Card,
-  CardActionArea,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Typography,
-} from "@mui/material/";
-import Button from "@mui/material/Button";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import CIcon from "@coreui/icons-react";
+import { Card, CardContent, Grid, Typography } from "@mui/material/";
+import { FaGithubAlt } from "react-icons/fa";
 
-function Project({ header, content, tools, link }) {
-  return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          alt="green iguana"
-          height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
-        />
+function Project({ header, content, path, stack, reverseOrder = false }) {
+  const Img = (
+    <Grid item xs={12} sm={6} className="project-img" sx={{ color: "white" }}>
+      IMG
+    </Grid>
+  );
+
+  const Desc = (
+    <Grid
+      item
+      xs={12}
+      sm={6}
+      className="project-desc"
+      sx={{ color: "white", textAlign: reverseOrder ? "left" : "right" }}
+    >
+      <h1>{header}</h1>
+      <Card sx={{ maxWidth: 345, marginLeft: reverseOrder ? "0" : "auto" }}>
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {header}
-          </Typography>
           <Typography variant="body2" color="text.secondary">
+            {content}
             Lizards are a widespread group of squamate reptiles, with over 6,000
             species, ranging across all continents except Antarctica
           </Typography>
         </CardContent>
-        <CardActions>
-          <Button size="small">Share</Button>
-          <Button size="small">Learn More</Button>
-        </CardActions>
-      </CardActionArea>
-    </Card>
+      </Card>
+      {stack &&
+        stack.map((s) => {
+          return (
+            <>
+              <span>{s.name}</span>
+              <CIcon icon={s.icon} />
+            </>
+          );
+        })}
+      <FaGithubAlt />
+    </Grid>
+  );
+
+  return (
+    <>
+      {reverseOrder ? Desc : Img}
+      {reverseOrder ? Img : Desc}
+    </>
   );
 }
 
 export default function Projects() {
   return (
-    <Carousel
-      additionalTransfrom={0}
-      arrows
-      autoPlaySpeed={3000}
-      centerMode={false}
-      className=""
-      containerClass="container-padding-bottom"
-      dotListClass=""
-      draggable
-      focusOnSelect
-      infinite
-      itemClass=""
-      keyBoardControl
-      minimumTouchDrag={80}
-      pauseOnHover
-      renderArrowsWhenDisabled={false}
-      renderButtonGroupOutside={false}
-      renderDotsOutside={false}
-      responsive={{
-        desktop: {
-          breakpoint: {
-            max: 3000,
-            min: 1024,
-          },
-          items: 3,
-          partialVisibilityGutter: 40,
-        },
-        mobile: {
-          breakpoint: {
-            max: 464,
-            min: 0,
-          },
-          items: 1,
-          partialVisibilityGutter: 30,
-        },
-        tablet: {
-          breakpoint: {
-            max: 1024,
-            min: 464,
-          },
-          items: 2,
-          partialVisibilityGutter: 30,
-        },
-      }}
-      rewind={false}
-      rewindWithAnimation={false}
-      rtl={false}
-      shouldResetAutoplay
-      showDots
-      sliderClass=""
-      slidesToSlide={1}
-      swipeable
-    >
-      {[1, 2, 3, 4, 5].map((x) => {
-        return <Project header={`header #${x}`} />;
-      })}
-    </Carousel>
+    <>
+      <h1>Things I've Built</h1>
+      <Grid
+        container
+        spacing={10}
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          flexWrap: "wrap",
+          width: "75%",
+          margin: "auto",
+        }}
+      >
+        {[1, 2, 3, 4, 5, 6].map((project, index) => {
+          const isOdd = index % 2 !== 0;
+          return (
+            <Project
+              reverseOrder={isOdd}
+              content={project}
+              header={`Title ${index}`}
+            />
+          );
+        })}
+      </Grid>
+    </>
   );
 }
