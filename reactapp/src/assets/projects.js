@@ -13,7 +13,7 @@ export const data = [
     header: "CovidCove",
     content: `
     A web application that gathered live data throughout covid 
-    to display up to date charting and visualizations n information
+    to display up to date charting and visualizations on information
     such as recovery vs fatality rates and so on and so forth
     `,
     tools: ["Django", "MySql"],
