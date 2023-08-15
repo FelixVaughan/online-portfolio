@@ -1,0 +1,32 @@
+.project-title{
+    font-size: 3.5em;
+    color: var(--secondary);
+    font-family: 'Baloo Paaji', cursive;
+}
+
+.project-desc{
+    /* background-color: ; */
+    border-radius: 2em;
+}
+
+#projects-header-text {
+    color: var(--secondary);   
+    font-family: 'Baloo Paaji', cursive;
+    left: 20
+}
+
+#projects-header-divider {
+    width: 51em;
+    border-radius: 0.3em;
+    border: 0.25em solid ;
+    /* height:1em; */
+    /* border-width: 0.25em; */
+}
+
+#projects-header{
+    margin-left: 22em;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+}
+
