@@ -1,7 +1,50 @@
-import CIcon from "@coreui/icons-react";
 import { Card, CardContent, Grid, Typography } from "@mui/material/";
+import {
+  DiAws,
+  DiDjango,
+  DiDocker,
+  DiMongodb,
+  DiNodejsSmall,
+  DiPostgresql,
+  DiPython,
+  DiReact,
+} from "react-icons/di";
 import { FaGithubAlt } from "react-icons/fa";
+import testImage from "../../assets/projects/test-img.avif";
 import "./projects.css";
+
+const ListStack = ({ list }) => {
+  const logoPairGen = (str = "") => {
+    const pairs = {
+      Nodejs: DiNodejsSmall,
+      React: DiReact,
+      MongoDB: DiMongodb,
+      SQL: DiPostgresql,
+      Python: DiPython,
+      AWS: DiAws,
+      Docker: DiDocker,
+      Django: DiDjango,
+    };
+    str = str.toLowerCase();
+    return Object.entries(pairs).find(
+      ([text, logo]) => text.toLowerCase() === str
+    );
+  };
+  return (
+    <div className="list-stack-container">
+      {list.map((str) => {
+        const logoPair = logoPairGen(str);
+        const Logo = logoPair[1];
+        console.log(logoPair);
+        return (
+          <span className="logo-pair">
+            <span>{logoPair[0]}</span> <Logo />
+          </span>
+        );
+      })}
+    </div>
+  );
+};
 
 function Project({ header, content, path, stack, reverseOrder = false }) {
   const styles = {
@@ -23,7 +66,9 @@ function Project({ header, content, path, stack, reverseOrder = false }) {
 
   const Img = (
     <Grid item xs={12} sm={6} className="project-img" sx={{ color: "white" }}>
-      IMG
+      <div className="image-container" style={{ width: "100%" }}>
+        <img src={path} width={"100%"} height={"100%"} alt="project-img.jpg" />
+      </div>
     </Grid>
   );
 
@@ -45,15 +90,7 @@ function Project({ header, content, path, stack, reverseOrder = false }) {
           </Typography>
         </CardContent>
       </Card>
-      {stack &&
-        stack.map((s) => {
-          return (
-            <>
-              <span>{s.name}</span>
-              <CIcon icon={s.icon} />
-            </>
-          );
-        })}
+      <ListStack list={stack} />
       <FaGithubAlt color="var(--secondary)" />
     </Grid>
   );
@@ -94,6 +131,17 @@ export default function Projects() {
               reverseOrder={isOdd}
               content={project}
               header={`Title ${index}`}
+              stack={[
+                "Nodejs",
+                "React",
+                "MongoDB",
+                "SQL",
+                "Python",
+                "AWS",
+                "Docker",
+                "Django",
+              ]}
+              path={testImage}
             />
           );
         })}

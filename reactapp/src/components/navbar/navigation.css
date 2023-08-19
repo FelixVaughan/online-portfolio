@@ -24,4 +24,5 @@
 
 .nav-items-container *:hover{
     text-decoration: none;
+    color: var(--primary);
 }
