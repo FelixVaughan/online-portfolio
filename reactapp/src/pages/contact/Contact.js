@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { Button, TextField, Grid } from "@mui/material";
+import { Button, Grid, TextField } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+import { useState } from "react";
 import "./contact.css";
 
 const fieldColor = "#eee";
@@ -137,7 +137,6 @@ export default function Contact() {
                 label="Company"
                 value={formState.company}
                 setValue={(value) => updateField("company", value)}
-                required
               />
             </Grid>
             <Grid item xs={12}>
