@@ -13,9 +13,12 @@
     padding-left: 75%;
     height: 5em;
     padding-bottom: 3em;
-    background-color: var(--tertiary);
+    transition: background-color 0.5s ease-in-out; 
 }
 
+.show-bg {
+    background-color: var(--tertiary);
+}
 
 .nav-items-container *{
     padding-left: 0.5em;
