@@ -5,6 +5,7 @@
     display: flex;
     /* margin-top: 10em; */
     position: absolute;    
+    
 }
 
 .header-section{
@@ -41,10 +42,16 @@ hr {
 }
 
 .profile-picture {
-    width: 25em;
-    height: 25em;
-    border-radius: 50%;
+    width: 30em;
+    height: 30em;
+    border-radius: 28%;
+    /* padding: 2em; */
     overflow: hidden;
+    background-color: var(--secondary);
+    border-color: white;
+    border-width: 1em;
+    border-style: solid;
+    
 }
 
 .profile-picture img {

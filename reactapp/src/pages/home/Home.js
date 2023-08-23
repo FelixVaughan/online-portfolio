@@ -1,4 +1,4 @@
-import image from "../../assets/profile.jpg";
+import image from "../../assets/transparent-profile.png";
 import "./home.css";
 export default function Home() {
   return (
@@ -6,15 +6,15 @@ export default function Home() {
       <div classname="header-section">
         <div className="profile-container">
           <div className="profile-picture">
-            <img src={image} width={3024} height={4024} alt="profile.jpg" />
+            <img src={image} alt="profile.jpg" />
           </div>
           <div className="profile-header">
             <p>
               Greetings, I'm Felix;
               <br />
-              An Aspiring young professional embarking on an exciting journey
-              driven by a passion for innovation and a vision to create
-              groundbreaking advancements that shape the future.
+              An young professional embarking on an driven by a passion for
+              innovation and a vision to create groundbreaking technologies that
+              shape the future.
             </p>
           </div>
         </div>
