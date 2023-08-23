@@ -1,3 +1,4 @@
+import Button from "@mui/material/Button";
 import image from "../../assets/transparent-profile.png";
 import "./home.css";
 export default function Home() {
@@ -10,9 +11,8 @@ export default function Home() {
           </div>
           <div className="profile-header">
             <p>
-              Greetings, I'm Felix;
-              <br />
-              An young professional embarking on an driven by a passion for
+              Greetings, I'm Felix!
+              <br />A young full-stack developer driven by a passion for
               innovation and a vision to create groundbreaking technologies that
               shape the future.
             </p>
@@ -20,7 +20,15 @@ export default function Home() {
         </div>
       </div>
       <hr />
-      <div className="description-section"></div>
+      <div className="description-section">
+        <Button
+          id="resume-button"
+          variant="contained"
+          href="#contained-buttons"
+        >
+          Resume
+        </Button>
+      </div>
     </div>
   );
 }
