@@ -1,6 +1,7 @@
 import Button from "@mui/material/Button";
 import image from "../../assets/transparent-profile.png";
 import "./home.css";
+
 export default function Home() {
   return (
     <div classname="container">
@@ -24,7 +25,9 @@ export default function Home() {
         <Button
           id="resume-button"
           variant="contained"
-          href="#contained-buttons"
+          target="_blank"
+          rel="noopener noreferrer"
+          href={`/${encodeURIComponent("Felix's Resume.pdf")}`}
         >
           Resume
         </Button>

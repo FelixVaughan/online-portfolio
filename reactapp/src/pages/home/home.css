@@ -71,6 +71,7 @@ hr {
 #resume-button{
     width: 10em;
     height: 4em;
+    left: -7.5;
     font-weight: 900;
     font-size: 15px;
     background-color: var(--secondary);
