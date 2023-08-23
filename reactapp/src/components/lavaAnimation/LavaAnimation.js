@@ -43,18 +43,8 @@ const LavaAnimation = ({ width, height, ballSizeFactor }) => {
                 );
               },
               resize: function () {
-                var t = this.elem;
-                for (
-                  this.width = t.offsetWidth,
-                    this.height = t.offsetHeight,
-                    this.left = 0,
-                    this.top = 0;
-                  null != t;
-                  t = t.offsetParent
-                ) {
-                  this.left += t.offsetLeft;
-                  this.top += t.offsetTop;
-                }
+                this.width = document.documentElement.scrollWidth;
+                this.height = document.documentElement.scrollHeight;
                 if (this.ctx) {
                   this.elem.width = this.width;
                   this.elem.height = this.height;
