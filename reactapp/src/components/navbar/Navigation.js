@@ -1,8 +1,9 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
 import "./navigation.css";
+
 export default function Navigation() {
   return (
-    <Navbar bg="light nav-container" data-bs-theme="light" expand="lg">
+    <Navbar className="nav-container" expand="lg">
       <Container>
         <Nav className="me-auto nav-items-container">
           <Nav.Link href="/">Home</Nav.Link>
