@@ -44,6 +44,9 @@
     left: 0;
     background-color: rgba(255, 255, 102, 0.12);
     border-radius: var(--profile-pic-border-radius);
+    border-color: var(--secondary);
+    border-style: solid;
+    border-width: 0.5em;
     z-index: 1;
 }
 
