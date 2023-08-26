@@ -33,3 +33,35 @@
 .contact-text-content > p {
     font-size: calc((0.2) * 1.2vw + 1rem);
 }
+
+.toast {
+   margin-top: 70px !important; 
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 0.5s forwards;
+}
+
+.fadeOut {
+  animation: fadeOut 0.5s forwards;
+}
+
+

@@ -1,6 +1,10 @@
 import { Button, Grid, TextField } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+import axios from "axios";
 import { useState } from "react";
+import { ToastContainer, cssTransition, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { isEmail, isMobilePhone } from "validator";
 import "./contact.css";
 
 const fieldColor = "#eee";
@@ -24,10 +28,10 @@ const useFormStyles = makeStyles({
 const useFieldStyles = makeStyles({
   textField: {
     "& .MuiOutlinedInput-root": {
-      // Use color theme instead of hardcoding the color
       "& fieldset": {
         borderColor: "var(--primary)",
         borderStyle: "solid",
+        borderWidth: "1px", // add initial borderWidth
       },
       "&:hover fieldset": {
         borderColor: "var(--tertiary)", // Add a lighter color on hover
@@ -37,7 +41,6 @@ const useFieldStyles = makeStyles({
       },
       "& input": {
         fontSize: 16, // Slightly increase font size
-        fontWeight: "bld",
         color: "black",
         backgroundColor: fieldColor,
         "&::placeholder": {
@@ -53,7 +56,28 @@ const useFieldStyles = makeStyles({
       },
     },
   },
+  errorField: {
+    "& .MuiOutlinedInput-root fieldset": {
+      transition: "border-color 0.5s ease, border-width 0.5s ease",
+      borderColor: "red",
+      borderWidth: 1.8,
+    },
+  },
 });
+
+const Fade = cssTransition({
+  enter: "fadeIn", // this will refer to a CSS class
+  exit: "fadeOut",
+  duration: [200, 200], // [enterDuration, exitDuration]
+});
+
+const toastConfig = {
+  autoClose: 1500,
+  transition: Fade,
+  className: "toast",
+  hideProgressBar: true,
+  closeButton: false,
+};
 
 const FormField = ({
   label,
@@ -62,11 +86,12 @@ const FormField = ({
   required = false,
   multiline = false,
   rows = 1,
+  error = false,
 }) => {
   const classes = useFieldStyles();
   return (
     <TextField
-      className={classes.textField}
+      className={`${classes.textField} ${error ? classes.errorField : ""}`}
       label={label}
       variant="outlined"
       value={value}
@@ -81,6 +106,7 @@ const FormField = ({
 };
 export default function Contact() {
   const classes = useFormStyles();
+  const [errorFields, setErrorFields] = useState({});
   const [formState, setFormState] = useState({
     firstName: "",
     lastName: "",
@@ -99,11 +125,42 @@ export default function Contact() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Form submission logic goes here
+    const errors = {};
+    if (!isMobilePhone(formState.phone)) {
+      errors.phone = true;
+    }
+    if (!isEmail(formState.email)) {
+      errors.email = true;
+    }
+
+    setErrorFields(errors);
+    setTimeout(() => {
+      setErrorFields({});
+    }, 1000);
+
+    const erroredFields = Object.keys(errors);
+    if (erroredFields.length !== 0) {
+      const errorMsg = `
+      The following fields require your attention: ${erroredFields.join(", ")}
+      `;
+      toast.error(errorMsg, toastConfig);
+      return;
+    }
+    axios
+      .post(process.env.FORM_ENDPOINT, formState)
+      .then((resp) => {
+        if (resp.status === 200) {
+          toast.success("Success!", toastConfig);
+        }
+      })
+      .catch((err) => {
+        toast.error("Message not sent!", toastConfig);
+      });
   };
 
   return (
     <div className="contact-container">
+      <ToastContainer />
       <div className="contact-text-content">
         <h1>Get In Touch</h1>
         <p>Let's connect! Fill out the form, and I'll get back to you.</p>
@@ -145,6 +202,7 @@ export default function Contact() {
                 value={formState.phone}
                 setValue={(value) => updateField("phone", value)}
                 required
+                error={errorFields.phone}
               />
             </Grid>
             <Grid item xs={12}>
@@ -153,6 +211,7 @@ export default function Contact() {
                 value={formState.email}
                 setValue={(value) => updateField("email", value)}
                 required
+                error={errorFields.email}
               />
             </Grid>
             <Grid item xs={12}>
