@@ -1,3 +1,3 @@
 ./reactapp/node_modules
-./lambda-nodejs14.x/contact/.env
+./contact-lambda/contact/.env
 ./reactapp/.env

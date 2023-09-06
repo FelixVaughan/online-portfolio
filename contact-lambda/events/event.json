@@ -1,5 +1,5 @@
 {
-  "body": "{\"firstName\":\"Jason\",\"lastName\":\"Huxtable\",\"company\":\"testcompany\",\"phone\":\"111-111-111\",\"email:\"test@email.com\",\"message\":\"HellothisisJasonHuxtableandthisisatestmessage.\",}",
+  "body": "{\"firstName\":\"Jason\",\"lastName\":\"Huxtable\",\"company\":\"testcompany\",\"phone\":\"111-111-111\",\"email\":\"test@email.com\",\"message\":\"HellothisisJasonHuxtableandthisisatestmessage.\"}",
   "resource": "/{proxy+}",
   "path": "/path/to/resource",
   "httpMethod": "POST",

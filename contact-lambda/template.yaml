@@ -17,3 +17,23 @@ Resources:
       Runtime: nodejs14.x
       Architectures: #optional
         - x86_64
+
+  ContactApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: prod
+      DefinitionBody:
+        swagger: '2.0'
+        info:
+          title:
+            Ref: AWS::StackName
+        paths:
+          /contact:
+            post:
+              x-amazon-apigateway-integration:
+                uri:
+                  Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${ContactRecieverFunction.Arn}/invocations
+                passthroughBehavior: "when_no_match"
+                httpMethod: "POST"
+                type: "aws_proxy"
+              responses: {}
