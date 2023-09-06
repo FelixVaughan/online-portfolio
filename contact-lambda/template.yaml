@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  Lambda function for contact page reception
+
+Globals:
+  Function:
+    Timeout: 3
+    MemorySize: 128
+
+Resources:
+  ContactRecieverFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: contact/
+      Handler: app.handler
+      Runtime: nodejs14.x
+      Architectures: #optional
+        - x86_64

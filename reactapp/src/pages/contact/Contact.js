@@ -29,6 +29,7 @@ const useFieldStyles = makeStyles({
   textField: {
     "& .MuiOutlinedInput-root": {
       "& fieldset": {
+        transition: "border-color 0.5s ease, border-width 0.5s ease",
         borderColor: "var(--primary)",
         borderStyle: "solid",
         borderWidth: "1px", // add initial borderWidth
