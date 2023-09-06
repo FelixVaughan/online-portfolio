@@ -16,6 +16,7 @@ sgMail.setApiKey(process.env.SENDGRID_KEY);
  * @returns {Object} object - API Gateway Lambda Proxy Output Format
  *
  */
+
 exports.handler = async (event, context) => {
   try {
     // Parse data from the contact form (replace this with your form data parsing logic)
@@ -29,23 +30,20 @@ exports.handler = async (event, context) => {
       text: JSON.stringify(formData),
     };
 
-    // Send email using SendGrid
     await sgMail.send(msg);
-    console.log("success");
+    const headers = {
+      "Content-Type": "application/json",
+    };
     return {
       statusCode: 200,
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: headers,
       body: JSON.stringify({ message: "Email sent successfully" }),
     };
   } catch (error) {
     console.error("Error:", error);
     return {
       statusCode: 500,
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: headers,
       body: JSON.stringify({ message: "An error occured" }),
     };
   }
