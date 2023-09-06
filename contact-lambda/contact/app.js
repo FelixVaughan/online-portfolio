@@ -22,12 +22,28 @@ exports.handler = async (event, context) => {
     // Parse data from the contact form (replace this with your form data parsing logic)
     const formData = JSON.parse(event.body);
 
-    // SendGrid email details
+    const emailContent =
+      "New mail from " +
+      formData.firstName +
+      " " +
+      formData.lastName +
+      ",\n" +
+      "Company: " +
+      formData.company +
+      "\n" +
+      "phone: " +
+      formData.phone +
+      "\n" +
+      "email: " +
+      formData.email +
+      "\n\n" +
+      formData.message;
+
     const msg = {
       to: process.env.EMAIL,
       from: process.env.EMAIL,
       subject: "Portfolio Contact Message",
-      text: JSON.stringify(formData),
+      text: emailContent,
     };
 
     await sgMail.send(msg);
