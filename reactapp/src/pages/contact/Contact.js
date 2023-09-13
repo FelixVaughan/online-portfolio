@@ -127,7 +127,7 @@ export default function Contact() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const errors = {};
-    if (!isMobilePhone(formState.phone)) {
+    if (formState.phone.length > 0 && !isMobilePhone(formState.phone)) {
       errors.phone = true;
     }
     if (!isEmail(formState.email)) {
@@ -147,8 +147,14 @@ export default function Contact() {
       toast.error(errorMsg, toastConfig);
       return;
     }
+    const headers = {
+      "Content-Type": "application/json",
+    };
+    console.log(formState, headers);
     axios
-      .post(process.env.FORM_ENDPOINT, formState)
+      .post(process.env.REACT_APP_FORM_ENDPOINT, formState, {
+        headers: headers,
+      })
       .then((resp) => {
         if (resp.status === 200) {
           toast.success("Success!", toastConfig);
@@ -202,7 +208,6 @@ export default function Contact() {
                 label="Phone Number"
                 value={formState.phone}
                 setValue={(value) => updateField("phone", value)}
-                required
                 error={errorFields.phone}
               />
             </Grid>

@@ -18,9 +18,28 @@ sgMail.setApiKey(process.env.SENDGRID_KEY);
  */
 
 exports.handler = async (event, context) => {
+  const headers = {
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "OPTIONS,POST",
+  };
+
+  if (event.requestContext.http.method === "OPTIONS") {
+    return {
+      statusCode: 200,
+      headers: headers,
+      body: JSON.stringify({}),
+    };
+  }
+
   try {
-    // Parse data from the contact form (replace this with your form data parsing logic)
     const formData = JSON.parse(event.body);
+    let emailBody = "No message specified.";
+
+    if (formData.message && formData.message.length > 0) {
+      emailBody = formData.message;
+    }
 
     const emailContent =
       "New mail from " +
@@ -37,7 +56,7 @@ exports.handler = async (event, context) => {
       "email: " +
       formData.email +
       "\n\n" +
-      formData.message;
+      emailBody;
 
     const msg = {
       to: process.env.EMAIL,
@@ -47,20 +66,17 @@ exports.handler = async (event, context) => {
     };
 
     await sgMail.send(msg);
-    const headers = {
-      "Content-Type": "application/json",
-    };
     return {
       statusCode: 200,
       headers: headers,
       body: JSON.stringify({ message: "Email sent successfully" }),
     };
   } catch (error) {
-    console.error("Error:", error);
+    console.error(error);
     return {
       statusCode: 500,
       headers: headers,
-      body: JSON.stringify({ message: "An error occured" }),
+      body: JSON.stringify({ message: "An error occurred", event }),
     };
   }
 };
