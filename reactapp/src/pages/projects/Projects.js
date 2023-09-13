@@ -107,7 +107,7 @@ export default function Projects() {
   return (
     <>
       <div id="projects-header">
-        <h1 id="projects-header-text">Things I've Built</h1>
+        <h1 id="projects-header-text">Some Things I've Built</h1>
         <hr
           id="projects-header-divider"
           style={{ borderColor: "var(--secondary)" }}
