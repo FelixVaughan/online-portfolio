@@ -1,0 +1,41 @@
+[
+  {
+    "header": "Easy Convey",
+    "content": "\n    A law-based web application \n used to parse, store and send legal documents.\n    ",
+    "tools": [
+      "React",
+      "NodeJS",
+      "Docker",
+      "SQL"
+    ],
+    "img": "../../assets/project-images/easy-convey.png",
+    "link": "",
+    "linkAlt": "proprietary"
+  },
+  {
+    "header": "MMA API",
+    "content": "\n    A REST API used to find out the latest information on current\n    and past UFC fighters. \n    ",
+    "tools": [
+      "NodeJs",
+      "NodeJs",
+      "MongoDb",
+      "AWS"
+    ],
+    "img": "../../assets/project-images/mma-api.jpg",
+    "link": "https://github.com/FelixVaughan/UFC-FIGHTER-API",
+    "linkAlt": ""
+  },
+  {
+    "header": "CovidCove",
+    "content": "\n    A web application that gathered live data throughout covid \n    to display up to date charting and visualizations on information\n    such as recovery vs fatality rates and so on and so forth\n    ",
+    "tools": [
+      "Django",
+      "SQL",
+      "Python",
+      "Docker"
+    ],
+    "img": "../../assets/project-images/covid-cove.jpg",
+    "link": "https://github.com/FelixVaughan/CovidCove",
+    "linkAlt": ""
+  }
+]

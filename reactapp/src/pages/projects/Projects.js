@@ -4,14 +4,16 @@ import {
   DiDjango,
   DiDocker,
   DiMongodb,
+  DiNginx,
   DiNodejsSmall,
   DiPostgresql,
   DiPython,
   DiReact,
 } from "react-icons/di";
 import { FaGithubAlt } from "react-icons/fa";
-import testImage from "../../assets/projects/test-img.avif";
+import testImage from "../../assets/project-images/mma-api.jpg";
 import "./projects.css";
+import projectList from "./projects.json";
 
 const ListStack = ({ list }) => {
   const logoPairGen = (str = "") => {
@@ -24,6 +26,7 @@ const ListStack = ({ list }) => {
       AWS: DiAws,
       Docker: DiDocker,
       Django: DiDjango,
+      Nginx: DiNginx,
     };
     str = str.toLowerCase();
     return Object.entries(pairs).find(
@@ -35,7 +38,6 @@ const ListStack = ({ list }) => {
       {list.map((str) => {
         const logoPair = logoPairGen(str);
         const Logo = logoPair[1];
-        console.log(logoPair);
         return (
           <span className="logo-pair">
             <span>{logoPair[0]}</span> <Logo />
@@ -85,8 +87,6 @@ function Project({ header, content, path, stack, reverseOrder = false }) {
         <CardContent>
           <Typography variant="body2" sx={styles.typography}>
             {content}
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
           </Typography>
         </CardContent>
       </Card>
@@ -104,6 +104,7 @@ function Project({ header, content, path, stack, reverseOrder = false }) {
 }
 
 export default function Projects() {
+  // const projectList = JSON.parse("./projects.json");
   return (
     <>
       <div id="projects-header">
@@ -124,23 +125,16 @@ export default function Projects() {
           margin: "auto",
         }}
       >
-        {[1, 2, 3, 4, 5, 6].map((project, index) => {
+        {projectList.map((project, index) => {
           const isOdd = index % 2 !== 0;
+          console.log(project.img);
           return (
             <Project
               reverseOrder={isOdd}
-              content={project}
-              header={`Title ${index}`}
-              stack={[
-                "Nodejs",
-                "React",
-                "MongoDB",
-                "SQL",
-                "Python",
-                "AWS",
-                "Docker",
-                "Django",
-              ]}
+              content={project.content}
+              header={`${index + 1}. ${project.header}`}
+              stack={project.tools}
+              // path={project.img}
               path={testImage}
             />
           );

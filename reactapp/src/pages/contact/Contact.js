@@ -150,7 +150,6 @@ export default function Contact() {
     const headers = {
       "Content-Type": "application/json",
     };
-    console.log(formState, headers);
     axios
       .post(process.env.REACT_APP_FORM_ENDPOINT, formState, {
         headers: headers,
