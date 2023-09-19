@@ -1,13 +1,25 @@
 export const data = [
   {
+    header: "Easy Convey",
+    content: `
+    A web application that fetches and displays live weather data 
+    of any given city using OpenWeatherMap API.
+    `,
+    tools: ["React", "NodeJS", "Docker", "SQL"],
+    img: "./project-images/easy-convey.png",
+    link: "",
+    linkAlt: "proprietary",
+  },
+  {
     header: "MMA API",
     content: `
     A REST API used to find out the latest information on current
     and past UFC fighters. 
     `,
-    tools: ["NodeJs", "Express", "MongoDb"],
-    img: "./projects/mma.jpg",
-    link: "https://github.com/",
+    tools: ["NodeJs", "NodeJs", "MongoDb", "AWS"],
+    img: "./project-images/mma-api.jpg",
+    link: "https://github.com/FelixVaughan/UFC-FIGHTER-API",
+    linkAlt: "",
   },
   {
     header: "CovidCove",
@@ -16,48 +28,9 @@ export const data = [
     to display up to date charting and visualizations on information
     such as recovery vs fatality rates and so on and so forth
     `,
-    tools: ["Django", "MySql"],
-    img: "./projects/mma.jpg",
-    link: "https://github.com/",
-  },
-  {
-    header: "WeatherToday",
-    content: `
-    A web application that fetches and displays live weather data 
-    of any given city using OpenWeatherMap API.
-    `,
-    tools: ["React", "Express"],
-    img: "./projects/weather.jpg",
-    link: "https://github.com/",
-  },
-  {
-    header: "BookBuddy",
-    content: `
-    An online platform that connects book readers. Users can rate, review, 
-    and recommend books to each other.
-    `,
-    tools: ["Angular", "Firebase"],
-    img: "./projects/bookbuddy.jpg",
-    link: "https://github.com/",
-  },
-  {
-    header: "FitTrack",
-    content: `
-    A mobile application that helps users to track their workouts, 
-    meals, and progress over time.
-    `,
-    tools: ["React Native", "MongoDb"],
-    img: "./projects/fittrack.jpg",
-    link: "https://github.com/",
-  },
-  {
-    header: "SmartHome",
-    content: `
-    A web application that allows users to remotely control smart devices 
-    in their home.
-    `,
-    tools: ["Vue", "NodeJs", "MongoDb"],
-    img: "./projects/smarthome.jpg",
-    link: "https://github.com/",
+    tools: ["Django", "MySql", "Python", "Docker"],
+    img: "./project-images/covid-cove.jpg",
+    link: "https://github.com/FelixVaughan/CovidCove",
+    linkAlt: "",
   },
 ];
