@@ -42,11 +42,11 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(255, 255, 102, 0.12);
+    background-color: rgba(255, 255, 102, 0.05);
     border-radius: var(--profile-pic-border-radius);
     border-color: var(--secondary);
     border-style: solid;
-    border-width: 0.5em;
+    border-width: 0.4em;
     z-index: 1;
 }
 

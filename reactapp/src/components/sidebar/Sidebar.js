@@ -1,17 +1,14 @@
-import { Link } from "react-router-dom";
-
 import {
-  Sidebar as _Sidebar,
   Menu,
   MenuItem,
-  SubMenu,
+  Sidebar as _Sidebar,
   sidebarClasses,
 } from "react-pro-sidebar";
 
 import {
+  FaEnvelope,
   FaGithub,
   FaLinkedin,
-  FaDiscord,
   FaStackOverflow,
 } from "react-icons/fa";
 
@@ -44,6 +41,9 @@ export default function Sidebar() {
         color: "#00ff00",
         fontWeight: "bold",
       },
+      "&:focus": {
+        outline: "none",
+      },
     },
   };
 
@@ -55,25 +55,46 @@ export default function Sidebar() {
         <div className="nav-menu-container">
           <MenuItem
             icon={<FaGithub size={iconSize} />}
-            component={<Link to="/Github" />}
+            component={
+              <a
+                href="https://github.com/FelixVaughan"
+                target="_blank"
+                rel="noopener noreferrer"
+              />
+            }
           />
           <MenuItem
             icon={<FaLinkedin size={iconSize} />}
-            component={<Link to="/Linkedin" />}
-          />
-          <MenuItem
-            icon={<FaDiscord size={iconSize} />}
-            component={<Link to="/Discord" />}
+            component={
+              <a
+                href="https://www.linkedin.com/in/felix-ezama-vaughan-36a536229/"
+                target="_blank"
+                rel="noopener noreferrer"
+              />
+            }
           />
           <MenuItem
             icon={<FaStackOverflow size={iconSize} />}
-            component={<Link to="/StackOverflow" />}
+            component={
+              <a
+                href="https://stackoverflow.com/users/5514399/felix-vaughan"
+                target="_blank"
+                rel="noopener noreferrer"
+              />
+            }
+          />
+          <MenuItem
+            icon={<FaEnvelope size={iconSize} />}
+            component={
+              <a
+                href="mailto:your.email@example.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              />
+            }
           />
         </div>
       </Menu>
     </_Sidebar>
   );
 }
-
-//global css properties
-//

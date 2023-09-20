@@ -11,7 +11,6 @@ import {
   DiReact,
 } from "react-icons/di";
 import { FaGithubAlt } from "react-icons/fa";
-import testImage from "../../assets/project-images/mma-api.jpg";
 import "./projects.css";
 import projectList from "./projects.json";
 
@@ -48,7 +47,7 @@ const ListStack = ({ list }) => {
   );
 };
 
-function Project({ header, content, path, stack, reverseOrder = false }) {
+function Project({ header, content, path, stack, link, reverseOrder = false }) {
   const styles = {
     card: {
       maxWidth: 345,
@@ -69,7 +68,12 @@ function Project({ header, content, path, stack, reverseOrder = false }) {
   const Img = (
     <Grid item xs={12} sm={6} className="project-img" sx={{ color: "white" }}>
       <div className="image-container" style={{ width: "100%" }}>
-        <img src={path} width={"100%"} height={"100%"} alt="project-img.jpg" />
+        <img
+          src={require(`../../assets/project-images/${path}`)}
+          width={"100%"}
+          height={"100%"}
+          alt="project-img.jpg"
+        />
       </div>
     </Grid>
   );
@@ -91,7 +95,11 @@ function Project({ header, content, path, stack, reverseOrder = false }) {
         </CardContent>
       </Card>
       <ListStack list={stack} />
-      <FaGithubAlt color="var(--secondary)" />
+      <FaGithubAlt
+        color="var(--secondary)"
+        onClick={() => link && window.open(link, "_blank")}
+        style={{ cursor: link ? "pointer" : "default" }}
+      />
     </Grid>
   );
 
@@ -134,8 +142,8 @@ export default function Projects() {
               content={project.content}
               header={`${index + 1}. ${project.header}`}
               stack={project.tools}
-              // path={project.img}
-              path={testImage}
+              path={project.img}
+              link={project.link}
             />
           );
         })}
