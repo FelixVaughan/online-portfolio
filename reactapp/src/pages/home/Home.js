@@ -26,8 +26,9 @@ export default function Home() {
           id="resume-button"
           variant="contained"
           target="_blank"
+          style={{ outline: "none" }}
           rel="noopener noreferrer"
-          href={`/${encodeURIComponent("Felix's Resume.pdf")}`}
+          href={`/${encodeURIComponent("Felix Resume.pdf")}`}
         >
           Resume
         </Button>

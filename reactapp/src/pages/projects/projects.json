@@ -8,7 +8,7 @@
       "Docker",
       "SQL"
     ],
-    "img": "../../assets/project-images/easy-convey.png",
+    "img": "easy-convey.png",
     "link": "",
     "linkAlt": "proprietary"
   },
@@ -21,7 +21,7 @@
       "MongoDb",
       "AWS"
     ],
-    "img": "../../assets/project-images/mma-api.jpg",
+    "img": "mma-api.jpg",
     "link": "https://github.com/FelixVaughan/UFC-FIGHTER-API",
     "linkAlt": ""
   },
@@ -34,7 +34,7 @@
       "Python",
       "Docker"
     ],
-    "img": "../../assets/project-images/covid-cove.jpg",
+    "img": "covid-cove.jpg",
     "link": "https://github.com/FelixVaughan/CovidCove",
     "linkAlt": ""
   }
