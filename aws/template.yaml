@@ -1,7 +1,7 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: >
-  Lambda function for contact page reception
+  Lambda function for contact page reception and S3 bucket for hosting React application
 
 Globals:
   Function:
@@ -40,8 +40,38 @@ Resources:
           - Content-Type
         AllowOrigins:
           - "*"
+  
+  # Added Resources for S3 Hosting
+  ReactAppBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      PublicAccessBlockConfiguration:
+          BlockPublicPolicy: false
+          RestrictPublicBuckets: false
+      WebsiteConfiguration:
+        IndexDocument: index.html
+        ErrorDocument: index.html
+        
+  ReactAppBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal: "*"
+            Action:
+              - s3:GetObject
+            Resource: !Sub "arn:aws:s3:::${ReactAppBucket}/*"
+      Bucket: !Ref ReactAppBucket
 
 Outputs:
   ApiEndpoint:
     Description: "The API endpoint URL"
     Value: !Sub "https://${ContactApi}.execute-api.${AWS::Region}.amazonaws.com/prod"
+  WebsiteURL:
+    Description: "URL of the website"
+    Value: !Sub "http://${ReactAppBucket}.s3-website-${AWS::Region}.amazonaws.com"
+  BucketName:
+    Description: "Name of the S3 bucket hosting the React app"
+    Value: !Ref ReactAppBucket
