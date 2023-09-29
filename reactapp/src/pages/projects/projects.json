@@ -1,7 +1,7 @@
 [
   {
     "header": "Easy Convey",
-    "content": "\n    A law-based web application \n used to parse, store and send legal documents.\n    ",
+    "content": "A law and calendar based web application created as part of my Software Engineering capstone used to parse, generate, store and send various types of legal documents for contracts, titles deeds taxes and more.",
     "tools": [
       "React",
       "NodeJS",
@@ -14,10 +14,10 @@
   },
   {
     "header": "MMA API",
-    "content": "\n    A REST API used to find out the latest information on current\n    and past UFC fighters. \n    ",
+    "content": "A REST API and web scraper project written using the NodeJS runtime along with the express framework for gathering data on current and past MMA fighers and making them accessible via public endpoints from an EC2 container.",
     "tools": [
       "NodeJs",
-      "NodeJs",
+      "Docker",
       "MongoDb",
       "AWS"
     ],
@@ -27,7 +27,7 @@
   },
   {
     "header": "CovidCove",
-    "content": "\n    A web application that gathered live data throughout covid \n    to display up to date charting and visualizations on information\n    such as recovery vs fatality rates and so on and so forth\n    ",
+    "content": "A dashboard web application that gathered live data throughout COVID-19 to display up to date charting information and visualizations on the virus such as recovery vs fatality rates, areas most affected and vacination rates. This was done through integration with various APIs and data sources.\n    ",
     "tools": [
       "Django",
       "SQL",
