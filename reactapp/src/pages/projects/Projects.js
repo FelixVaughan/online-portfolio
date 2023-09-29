@@ -112,7 +112,6 @@ function Project({ header, content, path, stack, link, reverseOrder = false }) {
 }
 
 export default function Projects() {
-  // const projectList = JSON.parse("./projects.json");
   return (
     <>
       <div id="projects-header">
@@ -135,7 +134,6 @@ export default function Projects() {
       >
         {projectList.map((project, index) => {
           const isOdd = index % 2 !== 0;
-          console.log(project.img);
           return (
             <Project
               reverseOrder={isOdd}
