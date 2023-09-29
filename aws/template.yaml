@@ -9,6 +9,7 @@ Globals:
     MemorySize: 128
 
 Resources:
+
   ContactReceiverFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -41,7 +42,11 @@ Resources:
         AllowOrigins:
           - "*"
   
-  # Added Resources for S3 Hosting
+  AppHostedZone:
+    Type: AWS::Route53::HostedZone
+    Properties:
+      Name: "felixvaughan.com." 
+      
   ReactAppBucket:
     Type: AWS::S3::Bucket
     Properties:
@@ -50,7 +55,7 @@ Resources:
           RestrictPublicBuckets: false
       WebsiteConfiguration:
         IndexDocument: index.html
-        ErrorDocument: index.html
+        ErrorDocument: index.html    
         
   ReactAppBucketPolicy:
     Type: AWS::S3::BucketPolicy
