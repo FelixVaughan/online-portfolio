@@ -41,22 +41,18 @@ Resources:
           - Content-Type
         AllowOrigins:
           - "*"
-  
-  AppHostedZone:
-    Type: AWS::Route53::HostedZone
-    Properties:
-      Name: "felixvaughan.com." 
       
   ReactAppBucket:
     Type: AWS::S3::Bucket
     Properties:
+      BucketName: 'felixvaughan.com'
       PublicAccessBlockConfiguration:
           BlockPublicPolicy: false
           RestrictPublicBuckets: false
       WebsiteConfiguration:
         IndexDocument: index.html
         ErrorDocument: index.html    
-        
+
   ReactAppBucketPolicy:
     Type: AWS::S3::BucketPolicy
     Properties:
@@ -70,6 +66,21 @@ Resources:
             Resource: !Sub "arn:aws:s3:::${ReactAppBucket}/*"
       Bucket: !Ref ReactAppBucket
 
+  DomainHostedZone:
+    Type: AWS::Route53::HostedZone
+    Properties:
+      Name: felixvaughan.com.
+      
+  DomainRecordSet:
+    Type: AWS::Route53::RecordSet
+    Properties: 
+      HostedZoneId: !Ref DomainHostedZone
+      Name: felixvaughan.com.
+      Type: A
+      AliasTarget:
+        DNSName: s3-website-us-east-1.amazonaws.com
+        HostedZoneId: Z3AQBSTGFYJSTF  # us-east-1 Hosted Zone ID 
+
 Outputs:
   ApiEndpoint:
     Description: "The API endpoint URL"
@@ -80,3 +91,6 @@ Outputs:
   BucketName:
     Description: "Name of the S3 bucket hosting the React app"
     Value: !Ref ReactAppBucket
+  NameServers:
+    Description: "The NS records for the hosted zone."
+    Value: !Join [", ", !GetAtt DomainHostedZone.NameServers]

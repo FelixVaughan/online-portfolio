@@ -1,34 +1,63 @@
 @import url('https://fonts.cdnfonts.com/css/baloo-paaji');
-@import url('https://fonts.cdnfonts.com/css/cooper-black');
 
 .nav-container {
     left: 0;
     right: 0;
-    top:0;
+    top: 0;
     position: fixed;
     z-index: 100;
     margin: 0;
     border-radius: 0px;
     padding-top: 2em;
-    padding-left: 75%;
-    height: 5em;
-    padding-bottom: 3em;
     transition: background-color 0.5s ease-in-out; 
+}
+
+.nav-flex-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 95%;
+    margin: 0 auto; /* Centers the container */
 }
 
 .show-bg {
     background-color: var(--tertiary);
 }
 
-.nav-items-container *{
-    padding-left: 0.5em;
-    color:  var(--secondary);
-    font-family: 'Baloo Paaji', cursive;
-    font-size: 2.3em;
+.nav-items-container {
+    display: flex;
+    gap: 15px;
 }
 
-.nav-items-container *:hover{
+.nav-items-container a {
+    padding-left: 0.5em;
+    color: var(--secondary);
+    font-family: 'Baloo Paaji', cursive;
+    font-size: 2.3em;
     text-decoration: none;
+}
+
+.nav-items-container a:hover {
     color: var(--primary);
 }
 
+/* For medium screens (tablets) */
+@media (max-width: 991px) {
+    .nav-items-container a {
+        font-size: 1.8em;
+    }
+}
+
+/* For small screens (large phones) */
+@media (max-width: 767px) {
+    .nav-items-container a {
+        font-size: 2em;
+    }
+}
+
+/* For extra small screens (small phones) */
+@media (max-width: 575px) {
+    .nav-items-container a {
+        font-size: 2em;
+    }
+}

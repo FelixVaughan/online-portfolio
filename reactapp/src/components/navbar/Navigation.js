@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
 import "./navigation.css";
 
 export default function Navigation() {
@@ -9,7 +8,6 @@ export default function Navigation() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       if (currentScrollY > 100) {
-        // Change 100 to the desired scroll height
         setShowBackground(true);
       } else {
         setShowBackground(false);
@@ -24,17 +22,14 @@ export default function Navigation() {
   }, []);
 
   return (
-    <Navbar
-      className={`nav-container ${showBackground ? "show-bg" : ""}`}
-      expand="lg"
-    >
-      <Container>
-        <Nav className="me-auto nav-items-container">
-          <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/projects">Projects</Nav.Link>
-          <Nav.Link href="/contact">Contact</Nav.Link>
-        </Nav>
-      </Container>
-    </Navbar>
+    <div className={`nav-container ${showBackground ? "show-bg" : ""}`}>
+      <div className="nav-flex-container">
+        <div className="nav-items-container">
+          <a href="/">Home</a>
+          <a href="/projects">Projects</a>
+          <a href="/contact">Contact</a>
+        </div>
+      </div>
+    </div>
   );
 }
