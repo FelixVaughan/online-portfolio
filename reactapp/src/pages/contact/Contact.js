@@ -1,4 +1,5 @@
 import { Button, Grid, TextField } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import { makeStyles } from "@mui/styles";
 import axios from "axios";
 import { useState } from "react";
@@ -9,20 +10,28 @@ import "./contact.css";
 
 const fieldColor = "#eee";
 
-const useFormStyles = makeStyles({
-  form: {
-    width: "100%",
-    display: "flex",
-    justifyContent: "center",
-  },
-  container: {
-    maxWidth: "45%",
-    border: "1px solid var(--primary)",
-    boxShadow: "5px 5px 5px rgba(0, 0, 0, 0.1)",
-    borderRadius: "5px",
-    padding: "20px",
-    backgroundColor: "var(--primary)",
-  },
+const useFormStyles = makeStyles(() => {
+  const theme = useTheme(); // get the default MUI theme
+  return {
+    form: {
+      width: "100%",
+      display: "flex",
+      justifyContent: "center",
+    },
+    container: {
+      maxWidth: "45%",
+      border: "1px solid var(--primary)",
+      boxShadow: "5px 5px 5px rgba(0, 0, 0, 0.1)",
+      borderRadius: "5px",
+      padding: "20px",
+      backgroundColor: "var(--primary)",
+      [theme.breakpoints.down("sm")]: {
+        maxWidth: "80%", // Adjust the maxWidth for small screens
+        marginLeft: "40em",
+      },
+    },
+    //... other styles ...
+  };
 });
 
 const useFieldStyles = makeStyles({
