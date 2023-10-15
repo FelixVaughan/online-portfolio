@@ -1,3 +1,4 @@
+import { useMediaQuery } from "@mui/material";
 import { Card, CardContent, Grid, Typography } from "@mui/material/";
 import {
   DiAws,
@@ -32,6 +33,7 @@ const ListStack = ({ list }) => {
       ([text, logo]) => text.toLowerCase() === str
     );
   };
+
   return (
     <div className="list-stack-container">
       {list.map((str) => {
@@ -48,16 +50,17 @@ const ListStack = ({ list }) => {
 };
 
 function Project({ header, content, path, stack, link, reverseOrder = false }) {
+  const isSmallScreen = useMediaQuery("(max-width:768px)");
+
   const styles = {
     card: {
-      maxWidth: 345,
+      maxWidth: isSmallScreen ? "300px" : "345px", // Adjusting the max width based on screen size
       marginLeft: reverseOrder ? "0" : "auto",
       marginBlock: 2.5,
       backgroundColor: "var(--card)",
       height: 200,
-      minWidth: 500,
+      minWidth: isSmallScreen ? "280px" : "500px", // Adjusting the min width based on screen size
     },
-
     typography: {
       color: "var(--primary)",
       fontSize: 15,
@@ -103,18 +106,27 @@ function Project({ header, content, path, stack, link, reverseOrder = false }) {
     </Grid>
   );
 
+  // const isSmallScreen = window.innerWidth <= 768;
+  const shouldDisplayDescFirst =
+    isSmallScreen || (!isSmallScreen && reverseOrder);
+
   return (
     <>
-      {reverseOrder ? Desc : Img}
-      {reverseOrder ? Img : Desc}
+      {shouldDisplayDescFirst ? Desc : Img}
+      {shouldDisplayDescFirst ? Img : Desc}
     </>
   );
 }
 
 export default function Projects() {
+  const isSmallScreen = useMediaQuery("(max-width:768px)");
+
   return (
     <>
-      <div id="projects-header">
+      <div
+        id="projects-header"
+        style={{ marginLeft: isSmallScreen ? "1em" : "22em" }}
+      >
         <h1 id="projects-header-text">Some Things I've Built</h1>
         <hr
           id="projects-header-divider"
@@ -128,7 +140,7 @@ export default function Projects() {
           display: "flex",
           justifyContent: "center",
           flexWrap: "wrap",
-          width: "75%",
+          width: isSmallScreen ? "95%" : "75%", // Adjusting width for smaller screens
           margin: "auto",
         }}
       >
@@ -136,7 +148,7 @@ export default function Projects() {
           const isOdd = index % 2 !== 0;
           return (
             <Project
-              reverseOrder={isOdd}
+              reverseOrder={!isSmallScreen && isOdd}
               content={project.content}
               header={`${index + 1}. ${project.header}`}
               stack={project.tools}
