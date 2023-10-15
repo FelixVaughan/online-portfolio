@@ -3,13 +3,36 @@
 
 .container {
     display: flex;
-    position: absolute;    
-    
+    flex-direction: column;
+    align-items: center;     /* Center children horizontally */
+    position: absolute;
+    width: 100%;             /* Take full width of its parent */
+    justify-content: center; /* Center children vertically */
+    height: 70%;            /* Take full height of its parent */
 }
 
-.header-section{
-    align-self: flex-end;
+.header-section {
+    width: 100%;             /* Take the full width */
+    display: flex;
+    justify-content: center; /* Center the inner profile-container */
+    align-items: center;
 }
+
+.profile-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center;
+    gap: 3em;
+}
+
+.button-section {
+    width: 100%;             /* Take the full width */
+    display: flex;
+    justify-content: center; /* Center the button */
+    padding-top: 2em;        /* Adjust padding as needed */
+}
+
 hr {
     border-width: 0.3em;
     width: 15em;
@@ -18,27 +41,6 @@ hr {
     left: 50%;
     margin-left: -7.5em;  
     margin-top: 2em;
-}
-
-.description-section{
-    display: flex;           /* Enables flexbox */
-    justify-content: center; /* Horizontally centers content */
-    align-items: center;    
-    color: var(--secondary);
-    font-family: Inconsolata, monospace;
-    padding-top: 8em;
-}
-
-
-.profile-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    margin-right: 12em;
-    margin-left: 8em;
-    z-index: 2;
-    gap: 3em;
 }
 
 .profile-picture {
@@ -70,8 +72,29 @@ hr {
 #resume-button{
     width: 10em;
     height: 4em;
-    left: -7.5;
+    /* left: -7.5; */
     font-weight: 900;
     font-size: 15px;
     background-color: var(--secondary);
+}
+
+@media (max-width: 768px) {
+  .profile-container {
+    flex-direction: column;  /* Change direction to column for stacking */
+    align-items: center;     /* Center items horizontally */
+    margin-right: 0;        /* Reset right margin */
+    margin-left: 0;         /* Reset left margin */
+    gap: 1em;               /* Adjust gap between image and text */
+  }
+
+  .profile-picture {
+    width: 20em;            /* Adjust width for small screens */
+    height: 20em;           /* Adjust height for small screens */
+  }
+
+  .profile-header {
+    text-align: center;     /* Center text on small screens */
+    font-size: 1em;
+    width: 80%;
+  }
 }

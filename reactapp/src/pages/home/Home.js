@@ -4,8 +4,8 @@ import "./home.css";
 
 export default function Home() {
   return (
-    <div classname="container">
-      <div classname="header-section">
+    <div className="container">
+      <div className="header-section">
         <div className="profile-container">
           <div className="profile-picture">
             <img src={image} alt="profile.jpg" />
@@ -20,8 +20,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <hr />
-      <div className="description-section">
+      <div className="button-section">
         <Button
           id="resume-button"
           variant="contained"
