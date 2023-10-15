@@ -65,3 +65,35 @@
 .logo-pair {
     margin-left: 0.4em;
 }
+
+
+@media (max-width: 768px) {
+  /* Move hr to the top and adjust other properties */
+  #projects-header {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 1em; /* Adjust margin for smaller screens */
+  }
+  
+  #projects-header-divider {
+      display: none;
+  }
+  
+  /* Stack the description above the image */
+  .project-desc, .project-img {
+    order: -1;
+  }
+
+  /* Adjustments to the titles and project descriptions */
+  .project-title {
+    font-size: 1em; /* Adjust to your preference */
+  }
+
+  #projects-header-text {
+    font-size: 2em; /* Adjust to your preference */
+  }
+
+  .project-desc h1 {
+    font-size: 1.5em; /* Adjust to your preference */
+  }
+}
