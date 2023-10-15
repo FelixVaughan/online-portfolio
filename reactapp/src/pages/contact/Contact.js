@@ -11,7 +11,7 @@ import "./contact.css";
 const fieldColor = "#eee";
 
 const useFormStyles = makeStyles(() => {
-  const theme = useTheme(); // get the default MUI theme
+  const theme = useTheme();
   return {
     form: {
       width: "100%",
@@ -26,11 +26,10 @@ const useFormStyles = makeStyles(() => {
       padding: "20px",
       backgroundColor: "var(--primary)",
       [theme.breakpoints.down("sm")]: {
-        maxWidth: "80%", // Adjust the maxWidth for small screens
+        maxWidth: "80%",
         marginLeft: "40em",
       },
     },
-    //... other styles ...
   };
 });
 

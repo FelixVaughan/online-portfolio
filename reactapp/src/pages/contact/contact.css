@@ -74,8 +74,10 @@
     flex-direction: column;
   }
   .contact-text-content {
-    align-items: center; /* Center align text on smaller screens */
+    align-items: center; 
+    margin-inline: auto;
     order: 0; /* Reset the order */
+    margin-top: -6em;
   }
   .contact-form {
     order: 1; /* Reset the order */
