@@ -1,3 +1,11 @@
+import { useTheme } from "@mui/material/styles";
+import { makeStyles } from "@mui/styles";
+import {
+  FaEnvelope,
+  FaGithub,
+  FaLinkedin,
+  FaStackOverflow,
+} from "react-icons/fa";
 import {
   Menu,
   MenuItem,
@@ -5,14 +13,26 @@ import {
   sidebarClasses,
 } from "react-pro-sidebar";
 
-import {
-  FaEnvelope,
-  FaGithub,
-  FaLinkedin,
-  FaStackOverflow,
-} from "react-icons/fa";
+const useStyles = makeStyles(() => {
+  const theme = useTheme();
+  return {
+    icon: {
+      fontSize: "2em",
+      [theme.breakpoints.down("sm")]: {
+        fontSize: "1.5em",
+      },
+    },
+    iconContainer: {
+      [theme.breakpoints.down("sm")]: {
+        marginLeft: "-7px",
+      },
+    },
+  };
+});
 
 export default function Sidebar() {
+  const classes = useStyles();
+
   const sidebarRootStyles = {
     [`.${sidebarClasses.container}`]: {
       backgroundColor: "transparent",
@@ -47,14 +67,13 @@ export default function Sidebar() {
     },
   };
 
-  const iconSize = "2em";
-
   return (
     <_Sidebar rootStyles={sidebarRootStyles}>
       <Menu menuItemStyles={menuItemStyles}>
         <div className="nav-menu-container">
           <MenuItem
-            icon={<FaGithub size={iconSize} />}
+            className={classes.iconContainer}
+            icon={<FaGithub className={classes.icon} />}
             component={
               <a
                 href="https://github.com/FelixVaughan"
@@ -64,7 +83,8 @@ export default function Sidebar() {
             }
           />
           <MenuItem
-            icon={<FaLinkedin size={iconSize} />}
+            className={classes.iconContainer}
+            icon={<FaLinkedin className={classes.icon} />}
             component={
               <a
                 href="https://www.linkedin.com/in/felix-ezama-vaughan-36a536229/"
@@ -74,7 +94,8 @@ export default function Sidebar() {
             }
           />
           <MenuItem
-            icon={<FaStackOverflow size={iconSize} />}
+            className={classes.iconContainer}
+            icon={<FaStackOverflow className={classes.icon} />}
             component={
               <a
                 href="https://stackoverflow.com/users/5514399/felix-vaughan"
@@ -84,7 +105,8 @@ export default function Sidebar() {
             }
           />
           <MenuItem
-            icon={<FaEnvelope size={iconSize} />}
+            className={classes.iconContainer}
+            icon={<FaEnvelope className={classes.icon} />}
             component={
               <a
                 href="mailto:your.email@example.com"
