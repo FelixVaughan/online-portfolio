@@ -1,9 +1,7 @@
-import Sidebar from "./components/sidebar/Sidebar";
-import Home from "./pages/home/Home";
-import Navigation from "./components/navbar/Navigation";
-import { useEffect } from "react";
-import LavaAnimation from "./components/lavaAnimation/LavaAnimation";
 import "./app.css";
+import LavaAnimation from "./components/lavaAnimation/LavaAnimation";
+import Navigation from "./components/navbar/Navigation";
+import Sidebar from "./components/sidebar/Sidebar";
 function App() {
   return (
     <div className="App">
