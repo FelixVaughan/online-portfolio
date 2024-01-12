@@ -2,12 +2,12 @@ import { Button, Grid, TextField } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { makeStyles } from "@mui/styles";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ToastContainer, cssTransition, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Typewriter from "typewriter-effect"; // Import Typewriter
 import { isEmail, isMobilePhone } from "validator";
 import "./contact.css";
-
 const fieldColor = "#eee";
 
 const useFormStyles = makeStyles(() => {
@@ -37,7 +37,7 @@ const useFieldStyles = makeStyles({
   textField: {
     "& .MuiOutlinedInput-root": {
       "& fieldset": {
-        transition: "border-color 0.5s ease, border-width 0.5s ease",
+        transition: "border-color 0.2s ease, border-width 0.2s ease",
         borderColor: "var(--primary)",
         borderStyle: "solid",
         borderWidth: "1px", // add initial borderWidth
@@ -60,7 +60,7 @@ const useFieldStyles = makeStyles({
     },
     "& .MuiInputLabel-root": {
       "&.MuiInputLabel-shrink": {
-        fontSize: 16, // Increase font size when label shrinks
+        fontSize: 12, // Increase font size when label shrinks
         color: "var(--tertiary)",
       },
     },
@@ -100,7 +100,9 @@ const FormField = ({
   const classes = useFieldStyles();
   return (
     <TextField
-      className={`${classes.textField} ${error ? classes.errorField : ""}`}
+      className={`${classes.textField} ${
+        error ? classes.errorField : ""
+      }`}
       label={label}
       variant="outlined"
       value={value}
@@ -114,6 +116,23 @@ const FormField = ({
   );
 };
 export default function Contact() {
+  const [hideCursor, setHideCursor] = useState(false);
+
+  const typingString =
+    "Let's connect! Fill out the form, and I'll get back to you.";
+  useEffect(() => {
+    // Typing duration calculation with buffer
+    const typingDelay = 70; // milliseconds per character
+    const typingDuration = typingString.length * typingDelay;
+    const buffer = 1000; // 1 second buffer
+
+    const timer = setTimeout(() => {
+      setHideCursor(true);
+    }, typingDuration + buffer);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const classes = useFormStyles();
   const [errorFields, setErrorFields] = useState({});
   const [formState, setFormState] = useState({
@@ -135,7 +154,10 @@ export default function Contact() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const errors = {};
-    if (formState.phone.length > 0 && !isMobilePhone(formState.phone)) {
+    if (
+      formState.phone.length > 0 &&
+      !isMobilePhone(formState.phone)
+    ) {
       errors.phone = true;
     }
     if (!isEmail(formState.email)) {
@@ -150,7 +172,9 @@ export default function Contact() {
     const erroredFields = Object.keys(errors);
     if (erroredFields.length !== 0) {
       const errorMsg = `
-      The following fields require your attention: ${erroredFields.join(", ")}
+      The following fields require your attention: ${erroredFields.join(
+        ", "
+      )}
       `;
       toast.error(errorMsg, toastConfig);
       return;
@@ -175,9 +199,23 @@ export default function Contact() {
   return (
     <div className="contact-container">
       <ToastContainer />
-      <div className="contact-text-content">
+      <div
+        className={`contact-text-content ${
+          hideCursor ? "hide-cursor" : ""
+        }`}
+      >
         <h1>Get In Touch</h1>
-        <p>Let's connect! Fill out the form, and I'll get back to you.</p>
+        <p>
+          <Typewriter
+            options={{
+              autoStart: true,
+              delay: 50,
+            }}
+            onInit={(typewriter) => {
+              typewriter.typeString(typingString).start();
+            }}
+          />
+        </p>
       </div>
       <div className="contact-form">
         <form onSubmit={handleSubmit} className={classes.form}>

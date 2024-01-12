@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d88f6bb2.css",
+    "main.js": "/static/js/main.1343cc4f.js",
+    "static/media/easy-convey.png": "/static/media/easy-convey.fc2ba871b2a722445202.png",
+    "static/media/transparent-profile.png": "/static/media/transparent-profile.085d7ccfd752cd3fb652.png",
+    "static/media/covid-cove.jpg": "/static/media/covid-cove.3fafadab1c4db8c7af04.jpg",
+    "static/media/mma-api.jpg": "/static/media/mma-api.a37a12439211db8a79d0.jpg",
+    "index.html": "/index.html",
+    "main.d88f6bb2.css.map": "/static/css/main.d88f6bb2.css.map",
+    "main.1343cc4f.js.map": "/static/js/main.1343cc4f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d88f6bb2.css",
+    "static/js/main.1343cc4f.js"
+  ]
+}

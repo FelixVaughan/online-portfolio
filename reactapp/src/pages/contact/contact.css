@@ -85,3 +85,7 @@
     margin-top: 2em;
   }
 }
+
+.hide-cursor .Typewriter__cursor {
+  display: none;
+}

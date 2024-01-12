@@ -23,6 +23,8 @@
     flex-direction: row;
     justify-content: center; /* Center the content horizontally */
     align-items: center;
+    position: relative;  
+    left: 1em; /*Maybe?*/
     gap: 3em;
 }
 
@@ -98,3 +100,4 @@ hr {
     width: 80%;
   }
 }
+

@@ -30,6 +30,14 @@ body {
 	height: 100vh;
 }
 
+.pageSubTitle {
+  color: var(--text-color);
+  font-size: 24px;
+  /* border-bottom: 3px solid var(--hl-color); */
+  margin-bottom: var(--spacing);
+}
+
+
 @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
@@ -61,3 +69,6 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
 }
+
+
+

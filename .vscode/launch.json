@@ -1,0 +1,43 @@
+{
+    "configurations": [
+
+      {
+            "type": "aws-sam",
+            "request": "direct-invoke",
+            "name": "ContactReceiverFunction",
+            "invokeTarget": {
+                "target": "template",
+                "templatePath": "${workspaceFolder}/aws/template.yaml",
+                "logicalId": "ContactReceiverFunction"
+            },
+            // "lambda": {
+            //     "runtime": "nodejs14.x",
+            //     "payload": {
+            //       "path": "${workspaceFolder}/aws/events/event.json"
+            //     },
+            //     "environmentVariables": {}
+            // }.
+
+            "api": {
+              "path": "/contact",
+              "httpMethod": "post",
+              "payload": {
+                "json": {
+                  "firstName": "Jason",
+                  "lastName": "Johnson",
+                  "company": "Plastic inc.",
+                  "phone": "403-121-9283",
+                  "email": "fake@email.com"
+                }
+              },
+              "headers": {
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Headers": "Content-Type",
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "OPTIONS,POST",
+              }
+          },
+        },
+ 
+  ]
+}
