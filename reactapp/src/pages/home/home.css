@@ -1,12 +1,12 @@
 @import url('https://fonts.cdnfonts.com/css/inconsolata-2');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 
-.container {
+.container-fluid {
     display: flex;
     flex-direction: column;
     align-items: center;     /* Center children horizontally */
     position: absolute;
-    width: 100%;             /* Take full width of its parent */
+    width: 90%;             /* Take full width of its parent */
     justify-content: center; /* Center children vertically */
     height: 70%;            /* Take full height of its parent */
 }
@@ -24,8 +24,8 @@
     justify-content: center; /* Center the content horizontally */
     align-items: center;
     position: relative;  
-    left: 1em; /*Maybe?*/
-    gap: 3em;
+    left: 4em; /*Maybe?*/
+    gap: 1em;
 }
 
 .button-section {

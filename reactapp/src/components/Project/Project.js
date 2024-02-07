@@ -6,7 +6,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import closeModal from "../../assets/projects/close.svg";
-
+import "./project.css";
 const Project = ({
   technologies,
   title,
@@ -33,11 +33,20 @@ const Project = ({
   const [showModal, setShowModal] = useState(false);
   const handleOpenModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const scrollGalleryLeft = () => {
+    setScrollPosition(scrollPosition - 100); // Adjust the scrolling increment as needed
+  };
+
+  const scrollGalleryRight = () => {
+    setScrollPosition(scrollPosition + 100); // Adjust the scrolling increment as needed
+  };
 
   return (
     <motion.div
       ref={ref}
-      className="col-sm-12 col-lg-6"
+      className="col-sm-12 col-lg-6 card"
       variants={variants}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
@@ -65,7 +74,6 @@ const Project = ({
         style={{
           content: {
             backgroundColor: "#101010",
-            color: "#9f9f9f",
             padding: "5%",
             display: "flex",
             flexDirection: "column",
@@ -78,6 +86,7 @@ const Project = ({
             transform: "translate(-50%, -50%)",
             zIndex: "999",
           },
+          zIndex: "999",
         }}
       >
         <img

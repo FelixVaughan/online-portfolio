@@ -13,6 +13,7 @@
   align-items: flex-end; 
   order: 1;
   margin-right: 2rem; /* Add right margin to the text content */
+  margin-left: 2em;
 }
 
 .contact-form {

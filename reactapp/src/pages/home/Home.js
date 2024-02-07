@@ -6,7 +6,7 @@ import "./home.css";
 
 export default function Home() {
   return (
-    <div className="container">
+    <div className="container-fluid">
       <div className="header-section">
         <div className="profile-container">
           <img src={image} alt="profile" className="profile-picture" />
@@ -22,7 +22,7 @@ export default function Home() {
                   .typeString("Greetings, I'm Felix!")
                   .pauseFor(250)
                   .typeString(
-                    "<br>A young full-stack developer driven by a passion for innovation and a vision to create groundbreaking technologies that shape the future."
+                    "<br>A young Software Developer driven by a passion for innovation and a vision to create groundbreaking technologies that help shape the future."
                   )
                   .pauseFor(300)
                   .start();
