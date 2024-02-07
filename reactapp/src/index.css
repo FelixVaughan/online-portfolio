@@ -50,6 +50,9 @@ body {
 	}
 }
 
+img {
+  max-width: 40%;
+}
 /* width */
 ::-webkit-scrollbar {
   width: 10px;

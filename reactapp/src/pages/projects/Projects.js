@@ -178,15 +178,13 @@
 //   );
 // }
 
-import Project from "../../components/Project/Project";
-import { backendProjects, webApps } from "./projectsData";
-
-const PageHeader = ({ title, description }) => (
-  <>
-    <p className="pageDescription">{description}</p>
-    <h3 className="pageTitle">{title}</h3>
-  </>
-);
+import PageHeader from "../../components/PageHeader";
+import Project from "../../components/Project";
+import {
+  backendProjects,
+  infraProjects,
+  webApps,
+} from "./projectsData";
 
 const Projects = () => {
   const WebAppsList = () =>
@@ -221,6 +219,22 @@ const Projects = () => {
       />
     ));
 
+  const InfraProjects = () =>
+    infraProjects.map((project, i) => (
+      <Project
+        key={i}
+        id={project.id}
+        title={project.title}
+        technologies={project.technologies}
+        image={project.image}
+        color={project.bgcolor}
+        github={project.github}
+        deployed={project.deployed}
+        description={project.description}
+        projectMedia={project.projectMedia}
+      />
+    ));
+
   return (
     <section className="portfolio">
       <PageHeader title="Portfolio" description="View my work" />
@@ -231,6 +245,10 @@ const Projects = () => {
       <h5 className="pageSubTitle">Backend Projects</h5>
       <div className="row spacing_bottom">
         <BackendProjects />
+      </div>
+      <h5 className="pageSubTitle">Infrastructure Projects</h5>
+      <div className="row spacing_bottom">
+        <InfraProjects />
       </div>
     </section>
   );
