@@ -46,7 +46,7 @@ const Project = ({
   return (
     <motion.div
       ref={ref}
-      className="col-sm-12 col-lg-6 card"
+      className="col-sm-12 col-lg-6"
       variants={variants}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
@@ -58,9 +58,7 @@ const Project = ({
         onClick={handleOpenModal}
       >
         <div className="textWrap col-6 d-flex flex-column justify-content-center align-items-center m-5">
-          <p className="tech">
-            <em>{technologies}</em>
-          </p>
+          <p className="tech">{technologies}</p>
           <h3 className="projectTitle">{title}</h3>
           <span className="viewWork">View Work &#8594;</span>
         </div>
