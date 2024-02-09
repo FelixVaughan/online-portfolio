@@ -17,7 +17,7 @@ const useStyles = makeStyles(() => {
   const theme = useTheme();
   return {
     icon: {
-      fontSize: "2em",
+      fontSize: "3em",
       [theme.breakpoints.down("sm")]: {
         fontSize: "1.5em",
       },
@@ -52,6 +52,7 @@ export default function Sidebar() {
   const menuItemStyles = {
     button: {
       marginBottom: "1em",
+      marginTop: "2em",
       size: "1em",
       "&:hover": {
         color: "black",

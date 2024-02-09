@@ -136,7 +136,7 @@ const Project = ({
         )}
         {github && (
           <button
-            className="btn"
+            className="btn githubLink"
             onClick={() => (window.location.href = github)}
           >
             GitHub Repo

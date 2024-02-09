@@ -32,8 +32,10 @@
     width: 100%;             /* Take the full width */
     display: flex;
     justify-content: center; /* Center the button */
-    padding-top: 2em;        /* Adjust padding as needed */
-}
+    padding-top: 2em;      
+    position: relative;
+    left: 4em
+  }
 
 hr {
     border-width: 0.3em;
