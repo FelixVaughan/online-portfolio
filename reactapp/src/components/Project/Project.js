@@ -5,7 +5,7 @@ import Modal from "react-modal";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-import closeModal from "../../assets/projects/close.svg";
+import closeModal from "../../assets/project-media/close.svg";
 import "./project.css";
 const Project = ({
   technologies,
