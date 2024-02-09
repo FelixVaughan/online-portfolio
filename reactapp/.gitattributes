@@ -1,2 +1,2 @@
 *.mp4 filter=lfs diff=lfs merge=lfs -text
-reactapp/src/assets/project-media/captions-demo.mp4 filter=lfs diff=lfs merge=lfs -text
+reactapp/src/assets/project-media/ filter=lfs diff=lfs merge=lfs -text
