@@ -4,13 +4,6 @@
   --primary: #FFFFFF; 
   /* #00494A */
   --secondary: #FED000;
-  --tertiary: #23527c;
-  --card: #1F4A72;
-  --primary-font: 'Poppins', sans-serif;
-
-  --primary: #FFFFFF; 
-  /* #00494A */
-  --secondary: #FED000;
   --tertiary: #2C353B;
   --card: #1F4A72;
   --primary-font: 'Poppins', sans-serif;
@@ -24,11 +17,12 @@ code {
 
 
 body {
+  /* background-size: 400% 400%; */
 	background: var(--tertiary);
-	/* linear-gradient(-45deg, #c5f7d1, #b2f7b5); */
-	background-size: 400% 400%;
-	/* animation: gradient 30s ease infinite; */
+  background: radial-gradient(circle at center, var(--secondary) -500%, var(--tertiary) 90%);
 	height: 95vh;
+  background-size: cover;
+  font-family: var(--primary-font);
 }
 
 .pageTitle {

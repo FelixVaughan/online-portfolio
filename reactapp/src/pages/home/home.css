@@ -87,8 +87,12 @@ hr {
     flex-direction: column;  /* Change direction to column for stacking */
     align-items: center;     /* Center items horizontally */
     margin-right: 0;        /* Reset right margin */
-    margin-left: 0;         /* Reset left margin */
+    margin-left: -5em;         /* Reset left margin */
     gap: 1em;               /* Adjust gap between image and text */
+  }
+
+  #resume-button{
+   margin-left: -5em;         /* Reset left margin */
   }
 
   .profile-picture {

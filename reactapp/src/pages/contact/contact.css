@@ -85,6 +85,12 @@
     align-items: center; /* Center align form on smaller screens */
     margin-top: 2em;
   }
+
+  .Typewriter { /* Assuming Typewriter is the correct class for "Let's connect" text */
+    text-align: center; /* Centers the text horizontally */
+    width: 100%; /* Ensures the text container takes full width */
+    order: 0; /* Ensure the text appears in the desired order */
+  }
 }
 
 .hide-cursor .Typewriter__cursor {
