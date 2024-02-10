@@ -21,7 +21,7 @@
 }
 
 .show-bg {
-    background-color: var(--tertiary);
+    background-color: var(--app-background-color);
 }
 
 .nav-items-container {

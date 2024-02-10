@@ -52,7 +52,7 @@ export const backendProjects = [
   {
     title: "Mixed Martial Arts API",
     image: MMAThumbnail,
-    technologies: "NodeJS | Docker | Express | MongoDB | AWS",
+    technologies: "NodeJS | Docker | Bash | Express | MongoDB | AWS",
     description:
       "A REST API and web scraper project written using the NodeJS runtime along with the express framework for gathering data on current and past MMA fighers and making them accessible via public endpoints from an EC2 container.",
     projectMedia: [MMAThumbnail],
@@ -61,9 +61,9 @@ export const backendProjects = [
     id: "3",
   },
   {
-    title: "Youtube Captions Chrome Extension",
+    title: "Youtube Captions Extension",
     image: CaptionsThumbnail,
-    technologies: "JavaScript | NodeJS | AWS | HTML | CSS",
+    technologies: "JavaScript | Bash | NodeJS | AWS | HTML | CSS",
     description:
       "Allows users to search and jump to locations in YouTube videos based off of subtitle timestamps. Search available in multiple languages.",
     projectMedia: [

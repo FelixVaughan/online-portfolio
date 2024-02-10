@@ -8,6 +8,7 @@
   --card: #1F4A72;
   --primary-font: 'Poppins', sans-serif;
   --spacing: 15px;
+  --app-background-color: radial-gradient(circle at center, var(--secondary) -500%, var(--tertiary) 90%);
 }
 
 code {
@@ -19,7 +20,7 @@ code {
 body {
   /* background-size: 400% 400%; */
 	background: var(--tertiary);
-  background: radial-gradient(circle at center, var(--secondary) -500%, var(--tertiary) 90%);
+  background: var(--app-background-color);
 	height: 95vh;
   background-size: cover;
   font-family: var(--primary-font);
