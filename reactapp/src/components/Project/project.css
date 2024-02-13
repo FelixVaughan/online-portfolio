@@ -238,6 +238,35 @@ body {
   justify-content: center; /* Center horizontally */
 }
 
+.carousel-container {
+  /* Adjust the max-height value as per your design requirements */
+  height: 80%;
+  width: 95%;
+  margin: auto;
+
+}
+
+.carousel-item {
+  max-height: 500px;
+  display: flex; /* Use Flexbox */
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+}
+
+.carousel-image {
+  display: block;
+  max-height: 500px; /* 100% of .carousel-item height */
+  max-width: 100%;  /* 100% of .carousel-item width */
+  margin: auto;
+  object-fit: contain; /* Cover the area of the container */
+  margin-bottom: 2em;
+}
+
+.slick-dots li button {
+  background: white !important;
+}
+
+
 /* --- MEDIA QUEIRES --- */
 
 @media (min-width: 750px) {
@@ -311,30 +340,63 @@ body {
   }
 }
 
-.carousel-container {
-  /* Adjust the max-height value as per your design requirements */
-  height: 80%;
-  width: 95%;
-  margin: auto;
+
+@media (max-width: 1440px) {
+  .portfolio {
+    width: auto; /* Adjust width to fit the screen size */
+    margin-left: 10%; /* Adjust margin to prevent overlap */
+    height: auto; /* Adjust height if necessary */
+  }
+  .projectCard{
+    flex-direction: column;
+    padding-top: 4em !important;
+    /* height: 80% !important; */
+  }
+}
+
+@media (max-width: 1024px) {
+
+  .portfolio{
+    margin-left: 12%;
+  }
+
+  .projectCard {
+    flex-basis: calc(33.333% - 40px); /* Adjust the basis and subtract twice the gap size */
+    transition: all 0.5s ease-in-out;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio{
+    margin-left: 45%;
+  }
+  .projectCard {
+    margin-left: 3%;
+  }
+}
+
+@media (max-width: 425px) {
+
+  .pageTitle, .pageSubTitle{
+    display: none;
+  }
+
+  .projectCard {
+    max-width: 70%; /* Adjust the max-width as well */
+    margin-left: 26%;
+  }
 
 }
 
-.carousel-item {
-  max-height: 500px;
-  display: flex; /* Use Flexbox */
-  align-items: center; /* Center content vertically */
-  justify-content: center; /* Center content horizontally */
+@media (max-width: 375px) {
+
+  
 }
 
-.carousel-image {
-  display: block;
-  max-height: 500px; /* 100% of .carousel-item height */
-  max-width: 100%;  /* 100% of .carousel-item width */
-  margin: auto;
-  object-fit: contain; /* Cover the area of the container */
-  margin-bottom: 2em;
-}
+@media (max-width: 320px) {
 
-.slick-dots li button {
-  background: white !important;
+  .projectCard {
+    max-width: 68%; /* Adjust the max-width as well */
+    margin-left: 32%;
+  }
 }
