@@ -22,7 +22,9 @@ export default function Navigation() {
   }, []);
 
   return (
-    <div className={`nav-container ${showBackground ? "show-bg" : ""}`}>
+    <div
+      className={`nav-container ${showBackground ? "show-bg" : ""}`}
+    >
       <div className="nav-flex-container">
         <div className="nav-items-container">
           <a href="/">Home</a>

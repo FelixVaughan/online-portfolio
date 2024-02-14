@@ -135,14 +135,15 @@ export default function Contact() {
 
   const classes = useFormStyles();
   const [errorFields, setErrorFields] = useState({});
-  const [formState, setFormState] = useState({
+  const defaultFormState = {
     firstName: "",
     lastName: "",
     company: "",
     phone: "",
     email: "",
     message: "",
-  });
+  };
+  const [formState, setFormState] = useState(defaultFormState);
 
   const updateField = (field, value) => {
     setFormState({
@@ -189,6 +190,9 @@ export default function Contact() {
       .then((resp) => {
         if (resp.status === 200) {
           toast.success("Success!", toastConfig);
+          setTimeout(() => {
+            setFormState(defaultFormState);
+          }, 500);
         }
       })
       .catch((err) => {

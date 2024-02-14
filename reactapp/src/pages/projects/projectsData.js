@@ -36,7 +36,7 @@ export const webApps = [
     id: "1",
   },
   {
-    title: "CovidCove",
+    title: "CovidCove Stats Dashboard",
     image: CovidCoveThumbnail,
     technologies: "Django | SQL | Python | Docker",
     description:

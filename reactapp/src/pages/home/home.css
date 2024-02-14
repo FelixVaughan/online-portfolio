@@ -96,8 +96,8 @@ hr {
   }
 
   .profile-picture {
-    width: 20em;            /* Adjust width for small screens */
-    height: 20em;           /* Adjust height for small screens */
+    width: 15em;            /* Adjust width for small screens */
+    height: 15em;           /* Adjust height for small screens */
   }
 
   .profile-header {

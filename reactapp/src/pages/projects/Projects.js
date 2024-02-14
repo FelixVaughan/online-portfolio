@@ -44,7 +44,7 @@ const Projects = () => {
   return (
     <section className="portfolio">
       <PageHeader title="Portfolio" description="View my work" />
-      <h5 className="pageSubTitle">Full Stack Web Apps</h5>
+      <h5 className="pageSubTitle">Full Stack Projects</h5>
       <div className="row spacing_bottom">
         <WebAppsList />
       </div>
