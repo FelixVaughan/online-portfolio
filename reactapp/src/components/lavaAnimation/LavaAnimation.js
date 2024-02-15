@@ -67,7 +67,8 @@ const LavaAnimation = ({ width, height, ballSizeFactor }) => {
           var i = 0.1,
             h = 1.5;
           this.vel = new s(
-            (Math.random() > 0.5 ? 1 : -1) * (0.2 + 0.25 * Math.random()),
+            (Math.random() > 0.5 ? 1 : -1) *
+              (0.2 + 0.25 * Math.random()),
             (Math.random() > 0.5 ? 1 : -1) * (0.2 + Math.random())
           );
           this.pos = new s(
@@ -120,7 +121,8 @@ const LavaAnimation = ({ width, height, ballSizeFactor }) => {
           this.ply = [0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1];
           this.mscases = [0, 3, 0, 3, 1, 3, 0, 3, 2, 2, 0, 2, 1, 1, 0];
           this.ix = [
-            1, 0, -1, 0, 0, 1, 0, -1, -1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 1, 1,
+            1, 0, -1, 0, 0, 1, 0, -1, -1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 1,
+            1,
           ];
           this.grid = [];
           this.balls = [];
@@ -141,7 +143,11 @@ const LavaAnimation = ({ width, height, ballSizeFactor }) => {
             h = 0.6 * this.sign;
           else {
             h = 0;
-            for (var r, n = this.grid[e], a = 0; (r = this.balls[a++]); )
+            for (
+              var r, n = this.grid[e], a = 0;
+              (r = this.balls[a++]);
+
+            )
               h +=
                 (r.size * r.size) /
                 (-2 * n.x * r.pos.x -
@@ -159,9 +165,14 @@ const LavaAnimation = ({ width, height, ballSizeFactor }) => {
             e = i + s * (this.sx + 2);
           if (this.grid[e].computed === this.iter) return !1;
           for (var r, n = 0, a = 0; 4 > a; a++) {
-            var l = i + this.ix[a + 12] + (s + this.ix[a + 16]) * (this.sx + 2),
+            var l =
+                i +
+                this.ix[a + 12] +
+                (s + this.ix[a + 16]) * (this.sx + 2),
               d = this.grid[l].force;
-            ((d > 0 && this.sign < 0) || (0 > d && this.sign > 0) || !d) &&
+            ((d > 0 && this.sign < 0) ||
+              (0 > d && this.sign > 0) ||
+              !d) &&
               (d = this.computeForce(
                 i + this.ix[a + 12],
                 s + this.ix[a + 16],
@@ -210,7 +221,9 @@ const LavaAnimation = ({ width, height, ballSizeFactor }) => {
           return (
             o.lineTo(
               this.grid[
-                i + this.plx[4 * r] + (s + this.ply[4 * r]) * (this.sx + 2)
+                i +
+                  this.plx[4 * r] +
+                  (s + this.ply[4 * r]) * (this.sx + 2)
               ].x +
                 this.ix[r] * p,
               this.grid[
@@ -252,7 +265,14 @@ const LavaAnimation = ({ width, height, ballSizeFactor }) => {
           }
         };
         var r = function (t, i, s, h, e) {
-          var r = o.createRadialGradient(t / 1, i / 1, 0, t / 1, i / 1, s);
+          var r = o.createRadialGradient(
+            t / 1,
+            i / 1,
+            0,
+            t / 1,
+            i / 1,
+            s
+          );
           return r.addColorStop(0, h), r.addColorStop(1, e), r;
         };
         if (document.getElementById("lamp-anim")) {
@@ -264,7 +284,14 @@ const LavaAnimation = ({ width, height, ballSizeFactor }) => {
             a = i.screen.init("lamp-anim", null, !0),
             o = a.ctx;
           a.resize();
-          t = new e(a.width, a.height, 6, "#fff", "#fff", ballSizeFactor); //"#3494E6", "#EC6EAD"
+          t = new e(
+            a.width,
+            a.height,
+            6,
+            "#fff",
+            "#fff",
+            ballSizeFactor
+          ); //"#3494E6", "#EC6EAD"
         }
         return { run: n };
       })();
@@ -284,7 +311,7 @@ const LavaAnimation = ({ width, height, ballSizeFactor }) => {
       ref={canvasRef}
       width={width}
       height={height}
-      style={{ position: "absolute", left: 0, top: 0, zIndex: -1 }}
+      style={{ position: "absolute", left: 0, top: 0, zIndex: -2 }}
     ></canvas>
   );
 };
