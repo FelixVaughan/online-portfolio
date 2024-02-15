@@ -84,7 +84,7 @@ const Project = ({
             transform: "translate(-50%, -50%)",
             zIndex: "999",
           },
-          zIndex: "999",
+          overlay: { zIndex: 1000 },
         }}
       >
         <img
