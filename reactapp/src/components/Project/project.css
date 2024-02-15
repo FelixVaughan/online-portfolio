@@ -112,7 +112,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 80%;
   padding-bottom: var(--spacing);
+  margin: 0 auto; 
 }
 
 
@@ -131,6 +133,7 @@ body {
   cursor: pointer;
   width: 60em;
   height: 27em !important;
+  z-index: -9;
 }
 
 .row {
@@ -271,8 +274,6 @@ body {
     flex-direction: column;
     align-items: center; /* This will center the portfolio horizontally */
     height: 100vh; /* This makes sure that the portfolio takes the full height of the viewport */
-    width: 80%; /* This makes sure that the portfolio takes the full width of the viewport */
-    margin: 0 auto; /* This will remove any margins and center the portfolio */
   }
   
   .row {

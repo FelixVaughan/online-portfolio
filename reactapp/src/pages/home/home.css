@@ -107,3 +107,23 @@ hr {
   }
 }
 
+@media (max-width: 425px) {
+  .profile-picture {
+    width: 12em;            /* Adjust width for small screens */
+    height: 12em;           /* Adjust height for small screens */
+  }
+  .profile-container {
+    flex-direction: column;  /* Change direction to column for stacking */
+    align-items: center;     /* Center items horizontally */
+    margin-left: -8em;         /* Reset left margin */
+    width: 60%;
+  }
+
+  .button-section{
+    width: 60%
+  }
+
+  #resume-button{
+    margin-left: -8em;         /* Reset left margin */
+  }
+}
