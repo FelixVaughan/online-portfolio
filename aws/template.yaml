@@ -15,7 +15,7 @@ Resources:
     Properties:
       CodeUri: contact/
       Handler: app.handler
-      Runtime: nodejs14.x
+      Runtime: nodejs22.x
       Events:
         ContactApi:
           Type: HttpApi

@@ -14,6 +14,14 @@ import EasyConveyThumbnail5 from "../../assets/project-media/easy-convey-5.png";
 import EasyConveyThumbnail6 from "../../assets/project-media/easy-convey-6.png";
 import EasyConveyThumbnail7 from "../../assets/project-media/easy-convey-7.png";
 import EasyConveyThumbnail from "../../assets/project-media/easy-convey.png";
+import ReplstashDemo from "../../assets/project-media/replstash-2.gif";
+import ReplstashDemo2 from "../../assets/project-media/replstash-3.gif";
+import ReplstashThumbnail from "../../assets/project-media/replstash.png";
+import ReplstashThumbnail2 from "../../assets/project-media/replstash-4.png";
+import ReplstashThumbnail3 from "../../assets/project-media/replstash-5.png";
+import ReplstashThumbnail4 from "../../assets/project-media/replstash-7.png";
+import ReplstashThumbnail5 from "../../assets/project-media/replstash-8.png";
+import ReplstashThumbnail6 from "../../assets/project-media/replstash-9.png";
 import MMAThumbnail from "../../assets/project-media/mma-api.jpg";
 
 export const webApps = [
@@ -77,6 +85,26 @@ export const backendProjects = [
       CaptionsThumbnail5,
     ],
     github: "https://github.com/FelixVaughan/youtube-captions-search",
+    bgcolor: "#B09716",
+    id: "4",
+  },
+  {
+    title: "Replstash",
+    image: ReplstashThumbnail,
+    technologies: "Typescript | Debug Adapter Protocol | VSCode Extension API",
+    description:
+      "A Visual Studio Code extension to quickly save, edit and rerun REPL content captured on breakpoints from the debug console.",
+    projectMedia: [
+      ReplstashDemo,
+      ReplstashDemo2,
+      ReplstashThumbnail,
+      ReplstashThumbnail2,
+      ReplstashThumbnail3,
+      ReplstashThumbnail4,
+      ReplstashThumbnail5,
+      ReplstashThumbnail6,
+    ],
+    github: "https://github.com/FelixVaughan/Replstash",
     bgcolor: "#B09716",
     id: "4",
   },

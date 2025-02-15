@@ -44,13 +44,13 @@ const Projects = () => {
   return (
     <section className="portfolio">
       <PageHeader title="Portfolio" description="View my work" />
-      <h5 className="pageSubTitle">Full Stack Projects</h5>
-      <div className="row spacing_bottom">
-        <WebAppsList />
-      </div>
       <h5 className="pageSubTitle">Backend Projects</h5>
       <div className="row spacing_bottom">
         <BackendProjects />
+      </div>
+      <h5 className="pageSubTitle">Full Stack Projects</h5>
+      <div className="row spacing_bottom">
+        <WebAppsList />
       </div>
     </section>
   );
