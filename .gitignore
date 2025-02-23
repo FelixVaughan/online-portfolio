@@ -1,4 +1,5 @@
 ./reactapp/node_modules
+./reactapp/build
 ./aws/contact/.env
 ./reactapp/.env
 ./reactapp/src/assets/project-media
