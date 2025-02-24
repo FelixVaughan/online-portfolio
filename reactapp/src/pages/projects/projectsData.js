@@ -22,7 +22,7 @@ import ReplstashThumbnail3 from "../../assets/project-media/replstash-5.png";
 import ReplstashThumbnail4 from "../../assets/project-media/replstash-7.png";
 import ReplstashThumbnail5 from "../../assets/project-media/replstash-8.png";
 import ReplstashThumbnail6 from "../../assets/project-media/replstash-9.png";
-import MMAThumbnail from "../../assets/project-media/mma-api.jpg";
+import MMAThumbnail from "../../assets/project-media/mma-api.png";
 
 export const webApps = [
   {
