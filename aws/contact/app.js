@@ -1,9 +1,8 @@
-const AWS = require("aws-sdk");
-const sgMail = require("@sendgrid/mail");
-
-AWS.config.update({ region: "us-east-1" });
+const { SESClient, SendEmailCommand } = require("@aws-sdk/client-ses");
 require("dotenv").config();
-sgMail.setApiKey(process.env.SENDGRID_KEY);
+
+const sesClient = new SESClient({ region: "us-east-1" });
+
 /**
  *
  * Event doc: https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-input-format
@@ -25,7 +24,10 @@ exports.handler = async (event, context) => {
     "Access-Control-Allow-Methods": "OPTIONS,POST",
   };
 
-  if (event.requestContext.http.method === "OPTIONS") {
+  console.log("Event:", JSON.stringify(event, null, 2));
+
+  // Handle OPTIONS request for CORS
+  if (event.requestContext?.http?.method === "OPTIONS" || event.httpMethod === "OPTIONS") {
     return {
       statusCode: 200,
       headers: headers,
@@ -58,25 +60,44 @@ exports.handler = async (event, context) => {
       "\n\n" +
       emailBody;
 
-    const msg = {
-      to: process.env.EMAIL,
-      from: process.env.EMAIL,
-      subject: "Portfolio Contact Message",
-      text: emailContent,
-    };
+    const sendEmailCommand = new SendEmailCommand({
+      Destination: {
+        ToAddresses: [process.env.EMAIL]
+      },
+      Message: {
+        Body: {
+          Text: {
+            Data: emailContent,
+            Charset: "UTF-8"
+          }
+        },
+        Subject: {
+          Data: "Portfolio Contact Message",
+          Charset: "UTF-8"
+        }
+      },
+      Source: process.env.EMAIL, // Must be verified in SES
+      ReplyToAddresses: [formData.email]
+    });
 
-    await sgMail.send(msg);
+    await sesClient.send(sendEmailCommand);
+    console.log("Email sent successfully");
+    
     return {
       statusCode: 200,
       headers: headers,
       body: JSON.stringify({ message: "Email sent successfully" }),
     };
   } catch (error) {
-    console.error(error);
+    console.error(`SES Error: ${error.message}`);
+    console.error(`Error details:`, error);
     return {
       statusCode: 500,
       headers: headers,
-      body: JSON.stringify({ message: "An error occurred", event }),
+      body: JSON.stringify({ 
+        message: "Email service temporarily unavailable",
+        error: error.message 
+      }),
     };
   }
 };

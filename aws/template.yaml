@@ -16,6 +16,14 @@ Resources:
       CodeUri: contact/
       Handler: app.handler
       Runtime: nodejs22.x
+      Policies:
+        - Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Action:
+                - ses:SendEmail
+                - ses:SendRawEmail
+              Resource: '*'
       Events:
         ContactApi:
           Type: HttpApi
